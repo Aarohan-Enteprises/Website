@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Assessment - PineCoder.in | Test Your Algo Trading Readiness</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Take our free trading assessment to evaluate your algo trading readiness. Get personalized recommendations from PineCoder.in experts.">
+    <meta name="keywords" content="trading assessment, algo trading quiz, trading readiness test, PineCoder.in assessment">
+    <meta name="author" content="PineCoder FinTech">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pinecoder.in/assessment.html">
+    <meta property="og:title" content="Trading Assessment - PineCoder.in | Test Your Algo Trading Readiness">
+    <meta property="og:description" content="Take our free trading assessment to evaluate your algo trading readiness.">
+    <meta property="og:image" content="https://pinecoder.in/og-image.jpg">
+    <meta property="og:site_name" content="PineCoder.in">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://pinecoder.in/assessment.html">
+    <meta name="twitter:title" content="Trading Assessment - PineCoder.in">
+    <meta name="twitter:description" content="Take our free trading assessment to evaluate your algo trading readiness.">
+    <meta name="twitter:image" content="https://pinecoder.in/og-image.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://pinecoder.in/assessment.html">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="favicon_io/site.webmanifest">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-950 text-gray-300">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="sticky top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold">
+                        <span class="text-white">Pine</span><span class="gradient-text">Coder.in</span>
+                    </a>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a>
+                    <a href="index.html#services" class="text-gray-300 hover:text-white transition-colors">Services</a>
+                    <a href="pricing.html" class="text-gray-300 hover:text-white transition-colors">Pricing</a>
+                    <a href="about.html" class="text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="contact.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium">
+                        Get Started
+                    </a>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-slate-800">
+            <div class="px-4 py-3 space-y-3">
+                <a href="index.html" class="block text-gray-300 hover:text-white transition-colors">Home</a>
+                <a href="index.html#services" class="block text-gray-300 hover:text-white transition-colors">Services</a>
+                <a href="pricing.html" class="block text-gray-300 hover:text-white transition-colors">Pricing</a>
+                <a href="about.html" class="block text-gray-300 hover:text-white transition-colors">About</a>
+                <a href="contact.html" class="block bg-blue-600 text-white px-6 py-2 rounded-lg font-medium text-center">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Assessment Section - Split Layout -->
+    <section class="min-h-[calc(100vh-64px)] relative">
+        <div class="absolute inset-0 grid-background opacity-10"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12 relative z-10">
+            <div id="quiz-section" class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-start">
+
+                <!-- Left Sidebar - Info Panel -->
+                <div class="lg:col-span-2 lg:sticky lg:top-24">
+                    <div class="space-y-6">
+                        <!-- Badge -->
+                        <div class="inline-flex items-center gap-2 bg-blue-600/10 border border-blue-600/30 rounded-full px-4 py-2">
+                            <i class="fas fa-clipboard-check text-blue-500"></i>
+                            <span class="text-blue-400 text-sm font-medium">Free Assessment</span>
+                        </div>
+
+                        <!-- Title -->
+                        <div>
+                            <h1 class="text-3xl lg:text-4xl font-bold text-white mb-4 leading-tight">
+                                Test Your Algo Trading <span class="gradient-text">Readiness</span>
+                            </h1>
+                            <p class="text-gray-400">
+                                Answer 5 quick questions to discover how prepared you are for automated trading.
+                            </p>
+                        </div>
+
+                        <!-- Progress Section -->
+                        <div class="bg-slate-900/50 rounded-xl p-5 border border-slate-800">
+                            <div class="flex justify-between items-center mb-3">
+                                <span class="text-sm font-medium text-white">Your Progress</span>
+                                <span id="progress-text" class="text-sm text-blue-400 font-medium">1 of 5</span>
+                            </div>
+                            <div class="w-full bg-slate-800 rounded-full h-2 mb-4">
+                                <div id="progress-bar" class="bg-gradient-to-r from-blue-600 to-green-500 h-2 rounded-full transition-all duration-500" style="width: 20%"></div>
+                            </div>
+
+                            <!-- Question Indicators -->
+                            <div class="flex justify-between">
+                                <div id="q1-dot" class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-medium">1</div>
+                                <div id="q2-dot" class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-gray-400 text-xs font-medium">2</div>
+                                <div id="q3-dot" class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-gray-400 text-xs font-medium">3</div>
+                                <div id="q4-dot" class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-gray-400 text-xs font-medium">4</div>
+                                <div id="q5-dot" class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-gray-400 text-xs font-medium">5</div>
+                            </div>
+                        </div>
+
+                        <!-- Benefits -->
+                        <div class="hidden lg:block space-y-3">
+                            <div class="flex items-center gap-3 text-sm text-gray-400">
+                                <i class="fas fa-clock text-blue-500"></i>
+                                <span>Takes less than 2 minutes</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-400">
+                                <i class="fas fa-chart-line text-green-500"></i>
+                                <span>Get personalized recommendations</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-400">
+                                <i class="fas fa-lock text-purple-500"></i>
+                                <span>100% free, no signup required</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Quiz Area -->
+                <div class="lg:col-span-3">
+                    <!-- Quiz Container -->
+                    <div id="quiz-container" class="bg-slate-900 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl">
+                        <!-- Questions will be rendered here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section (Hidden Initially) -->
+            <div id="results-container" class="hidden">
+                <!-- Results will be rendered here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-12 border-t border-slate-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span class="text-white">Pine</span><span class="gradient-text">Coder.in</span>
+                    </h3>
+                    <p class="text-gray-400 mb-4">
+                        India's premier automated algorithmic trading development company. Transform your trading ideas into profitable algorithms.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="pricing.html" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
+                        <li><a href="contact.html#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
+                        <li><a href="assessment.html" class="text-gray-400 hover:text-white transition-colors">Assessment</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-blue-500 mt-1"></i>
+                            <span class="text-gray-400">Nagpur, Maharashtra, India</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-phone text-blue-500 mt-1"></i>
+                            <a href="tel:+91-7499462967" class="text-gray-400 hover:text-white transition-colors">+91-7499462967</a>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-envelope text-blue-500 mt-1"></i>
+                            <a href="mailto:contact@pinecoder.in" class="text-gray-400 hover:text-white transition-colors">contact@pinecoder.in</a>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fab fa-whatsapp text-green-500 mt-1"></i>
+                            <a href="https://wa.me/91-7499462967" target="_blank" class="text-gray-400 hover:text-white transition-colors">WhatsApp Support</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-500 text-sm">
+                        © 2025 Aarohan Enterprises (PineCoder FinTech). All rights reserved.
+                    </p>
+                    <div class="flex gap-6 text-sm">
+                        <a href="privacy-policy.html" class="text-gray-500 hover:text-white transition-colors">Privacy Policy</a>
+                        <a href="terms-of-service.html" class="text-gray-500 hover:text-white transition-colors">Terms of Service</a>
+                        <a href="disclaimer.html" class="text-gray-500 hover:text-white transition-colors">Disclaimer</a>
+                        <a href="refund-policy.html" class="text-gray-500 hover:text-white transition-colors">Refund Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Quiz Questions Data
+        const questions = [
+            {
+                id: 1,
+                question: "What is your current trading experience level?",
+                options: [
+                    { text: "Complete beginner - just getting started", score: 1 },
+                    { text: "Some experience - traded for 1-2 years", score: 2 },
+                    { text: "Intermediate - 2-5 years of trading", score: 3 },
+                    { text: "Experienced - 5+ years with consistent results", score: 4 }
+                ]
+            },
+            {
+                id: 2,
+                question: "Do you currently have a documented trading strategy?",
+                options: [
+                    { text: "No, I trade based on tips and news", score: 1 },
+                    { text: "I have a rough idea but nothing written down", score: 2 },
+                    { text: "Yes, I have basic entry/exit rules documented", score: 3 },
+                    { text: "Yes, fully documented with risk management rules", score: 4 }
+                ]
+            },
+            {
+                id: 3,
+                question: "How familiar are you with technical indicators?",
+                options: [
+                    { text: "Not familiar at all", score: 1 },
+                    { text: "Know basic indicators like RSI, MACD", score: 2 },
+                    { text: "Comfortable using multiple indicators together", score: 3 },
+                    { text: "Expert - can create custom indicator logic", score: 4 }
+                ]
+            },
+            {
+                id: 4,
+                question: "What is your primary goal for algo trading?",
+                options: [
+                    { text: "Just curious to learn more about it", score: 1 },
+                    { text: "Want to reduce emotional trading decisions", score: 2 },
+                    { text: "Looking to automate a profitable manual strategy", score: 3 },
+                    { text: "Scale up trading with multiple strategies", score: 4 }
+                ]
+            },
+            {
+                id: 5,
+                question: "What trading capital are you planning to allocate for algo trading?",
+                options: [
+                    { text: "Less than ₹1 Lakh", score: 1 },
+                    { text: "₹1-5 Lakhs", score: 2 },
+                    { text: "₹5-25 Lakhs", score: 3 },
+                    { text: "More than ₹25 Lakhs", score: 4 }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let answers = [];
+        let userScore = 0;
+
+        // DOM Elements
+        const quizContainer = document.getElementById('quiz-container');
+        const resultsContainer = document.getElementById('results-container');
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+
+        // Update question dots
+        function updateDots() {
+            for (let i = 1; i <= 5; i++) {
+                const dot = document.getElementById(`q${i}-dot`);
+                if (i < currentQuestion + 1) {
+                    // Completed
+                    dot.className = 'w-8 h-8 rounded-full bg-green-600 flex items-center justify-center text-white text-xs font-medium';
+                    dot.innerHTML = '<i class="fas fa-check text-xs"></i>';
+                } else if (i === currentQuestion + 1) {
+                    // Current
+                    dot.className = 'w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-medium';
+                    dot.textContent = i;
+                } else {
+                    // Upcoming
+                    dot.className = 'w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-gray-400 text-xs font-medium';
+                    dot.textContent = i;
+                }
+            }
+        }
+
+        // Render Question
+        function renderQuestion() {
+            const q = questions[currentQuestion];
+            const progress = ((currentQuestion + 1) / questions.length) * 100;
+
+            progressBar.style.width = `${progress}%`;
+            progressText.textContent = `${currentQuestion + 1} of ${questions.length}`;
+            updateDots();
+
+            quizContainer.innerHTML = `
+                <div class="mb-6">
+                    <span class="inline-block bg-blue-600/20 text-blue-400 text-sm font-medium px-3 py-1 rounded-full mb-4">
+                        Question ${currentQuestion + 1}
+                    </span>
+                    <h2 class="text-2xl font-bold text-white">${q.question}</h2>
+                </div>
+                <div class="space-y-3">
+                    ${q.options.map((option, index) => `
+                        <button
+                            onclick="selectAnswer(${index}, ${option.score})"
+                            class="w-full text-left p-4 bg-slate-800 border border-slate-700 rounded-xl text-gray-300 hover:border-blue-500 hover:bg-slate-800/80 transition-all duration-200 flex items-center gap-4 group"
+                        >
+                            <span class="w-8 h-8 bg-slate-700 rounded-lg flex items-center justify-center text-sm font-medium group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                ${String.fromCharCode(65 + index)}
+                            </span>
+                            <span class="flex-1">${option.text}</span>
+                            <i class="fas fa-arrow-right text-slate-600 group-hover:text-blue-500 transition-colors"></i>
+                        </button>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        // Select Answer
+        function selectAnswer(optionIndex, score) {
+            answers[currentQuestion] = { optionIndex, score };
+            userScore += score;
+
+            // Visual feedback
+            const buttons = quizContainer.querySelectorAll('button');
+            buttons[optionIndex].classList.add('border-green-500', 'bg-green-600/10');
+            buttons[optionIndex].querySelector('span:first-child').classList.add('bg-green-600', 'text-white');
+
+            // Move to next question or show results
+            setTimeout(() => {
+                if (currentQuestion < questions.length - 1) {
+                    currentQuestion++;
+                    renderQuestion();
+                } else {
+                    showResults();
+                }
+            }, 300);
+        }
+
+        // Show Results
+        function showResults() {
+            // Hide quiz section completely
+            document.getElementById('quiz-section').classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
+
+            const maxScore = questions.length * 4;
+            const percentage = Math.round((userScore / maxScore) * 100);
+
+            let level, levelColor, levelBg, levelIcon, recommendations;
+
+            if (percentage >= 80) {
+                level = "Expert Ready";
+                levelColor = "text-green-400";
+                levelBg = "bg-gradient-to-r from-green-600 to-emerald-600";
+                levelIcon = "fa-rocket";
+                recommendations = [
+                    "You're well-prepared for advanced algo trading strategies",
+                    "Consider scaling with multiple automated systems",
+                    "Focus on portfolio-level risk management",
+                    "Explore high-frequency or options strategies"
+                ];
+            } else if (percentage >= 60) {
+                level = "Well Prepared";
+                levelColor = "text-blue-400";
+                levelBg = "bg-gradient-to-r from-blue-600 to-cyan-600";
+                levelIcon = "fa-chart-line";
+                recommendations = [
+                    "You have a solid foundation for algo trading",
+                    "Start with automating your existing strategy",
+                    "Backtest thoroughly before going live",
+                    "Consider starting with paper trading first"
+                ];
+            } else if (percentage >= 40) {
+                level = "Getting There";
+                levelColor = "text-yellow-400";
+                levelBg = "bg-gradient-to-r from-yellow-600 to-orange-600";
+                levelIcon = "fa-seedling";
+                recommendations = [
+                    "Focus on documenting your trading rules clearly",
+                    "Learn more about technical indicators",
+                    "Start with simple automation like alerts",
+                    "Consider our consultation to build a roadmap"
+                ];
+            } else {
+                level = "Just Starting";
+                levelColor = "text-purple-400";
+                levelBg = "bg-gradient-to-r from-purple-600 to-pink-600";
+                levelIcon = "fa-graduation-cap";
+                recommendations = [
+                    "Begin with learning trading fundamentals",
+                    "Paper trade to develop a consistent strategy",
+                    "Study technical analysis basics",
+                    "Our team can guide you through the learning process"
+                ];
+            }
+
+            resultsContainer.innerHTML = `
+                <div class="min-h-[calc(100vh-140px)] flex flex-col">
+                    <!-- Compact Header -->
+                    <div class="flex items-center justify-between mb-6">
+                        <div>
+                            <div class="flex items-center gap-3 mb-1">
+                                <div class="w-8 h-8 bg-green-600/20 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-check text-green-500 text-sm"></i>
+                                </div>
+                                <h1 class="text-2xl font-bold text-white">Your Results</h1>
+                            </div>
+                            <p class="text-gray-500 text-sm ml-11">Algo trading readiness analysis</p>
+                        </div>
+                        <button onclick="retakeQuiz()" class="text-gray-400 hover:text-white text-sm flex items-center gap-2 transition-colors">
+                            <i class="fas fa-redo"></i> Retake
+                        </button>
+                    </div>
+
+                    <!-- Main Content - Two Columns -->
+                    <div class="grid lg:grid-cols-2 gap-6 flex-1">
+
+                        <!-- Left: Score + Recommendations Combined -->
+                        <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-slate-800 rounded-2xl border border-slate-700/50 overflow-hidden">
+                            <!-- Score Header Section -->
+                            <div class="bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-green-600/10 p-6 border-b border-slate-700/50">
+                                <div class="flex items-center gap-6">
+                                    <!-- Score Circle with Glow -->
+                                    <div class="relative">
+                                        <div class="absolute inset-0 bg-blue-500/20 rounded-full blur-xl"></div>
+                                        <svg class="w-28 h-28 transform -rotate-90 relative">
+                                            <circle cx="56" cy="56" r="48" stroke="#1e293b" stroke-width="8" fill="none"/>
+                                            <circle cx="56" cy="56" r="48" stroke="url(#scoreGradient)" stroke-width="8" fill="none"
+                                                stroke-dasharray="${2 * Math.PI * 48}"
+                                                stroke-dashoffset="${2 * Math.PI * 48 * (1 - percentage / 100)}"
+                                                stroke-linecap="round"
+                                                style="transition: stroke-dashoffset 1s ease-out"/>
+                                            <defs>
+                                                <linearGradient id="scoreGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                                    <stop offset="0%" stop-color="#3b82f6"/>
+                                                    <stop offset="100%" stop-color="#10b981"/>
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+                                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                            <span class="text-3xl font-bold text-white">${percentage}%</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Score Info -->
+                                    <div class="flex-1">
+                                        <p class="text-gray-400 text-sm mb-1">Your Readiness Level</p>
+                                        <div class="${levelBg} text-white text-base px-5 py-2 rounded-lg font-bold inline-flex items-center gap-2 shadow-lg">
+                                            <i class="fas ${levelIcon}"></i>
+                                            ${level}
+                                        </div>
+                                        <p class="text-gray-500 text-sm mt-2">
+                                            <span class="text-white font-semibold">${userScore}</span> out of ${maxScore} points
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recommendations Section -->
+                            <div class="p-6">
+                                <h3 class="text-base font-bold text-white mb-4 flex items-center gap-2">
+                                    <span class="w-8 h-8 bg-yellow-500/20 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-lightbulb text-yellow-500"></i>
+                                    </span>
+                                    What We Recommend
+                                </h3>
+                                <div class="space-y-3">
+                                    ${recommendations.map((rec, index) => `
+                                        <div class="flex items-start gap-3 bg-slate-800/50 rounded-lg p-3 border border-slate-700/30 hover:border-green-500/30 transition-colors">
+                                            <span class="w-6 h-6 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                                                <i class="fas fa-check text-green-500 text-xs"></i>
+                                            </span>
+                                            <span class="text-gray-300 text-sm leading-relaxed">${rec}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right: Form Section -->
+                        <div>
+                            <div id="consultation-form-card" class="bg-slate-900 rounded-xl p-6 border border-slate-800 h-full">
+                                <div class="flex items-center gap-4 mb-2">
+                                    <div class="w-14 h-14 bg-blue-600/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-headset text-blue-500 text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-white">Get Free Consultation</h3>
+                                        <p class="text-gray-400">We'll reach out within 24 hours</p>
+                                    </div>
+                                </div>
+
+                                <!-- Trust Badges - Near Header -->
+                                <div class="flex items-center gap-4 text-sm text-gray-400 mb-5 ml-1">
+                                    <span class="flex items-center gap-1.5"><i class="fas fa-phone-slash text-green-500"></i> No spam calls</span>
+                                    <span class="flex items-center gap-1.5"><i class="fas fa-lock text-green-500"></i> Data never shared</span>
+                                </div>
+
+                                <form id="consultation-form" class="space-y-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-400 mb-2">Your Name *</label>
+                                        <input type="text" id="name" name="name" required
+                                            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors text-base"
+                                            placeholder="John Doe">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-400 mb-2">Email Address *</label>
+                                        <input type="email" id="email" name="email" required
+                                            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors text-base"
+                                            placeholder="john@example.com">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-400 mb-2">Phone <span class="text-gray-600">(Optional - 10 digits)</span></label>
+                                        <input type="tel" id="phone" name="phone"
+                                            class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors text-base"
+                                            placeholder="9876543210"
+                                            maxlength="10"
+                                            pattern="[0-9]{10}"
+                                            oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10)"
+                                            title="Please enter a valid 10-digit mobile number">
+                                        <p id="phone-error" class="text-red-400 text-xs mt-1 hidden">Please enter a valid 10-digit mobile number</p>
+                                    </div>
+
+                                    <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-lg font-bold hover:bg-blue-700 transition-colors text-lg flex items-center justify-center gap-2">
+                                        Get Free Consultation <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- Success Message (Hidden Initially) -->
+                            <div id="form-success" class="hidden bg-green-600/10 rounded-xl p-6 border border-green-500/30 h-full">
+                                <div class="flex items-center gap-4 h-full">
+                                    <div class="w-16 h-16 bg-green-600/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-check-circle text-green-500 text-3xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold text-white">Thank You!</h3>
+                                        <p class="text-gray-400">We'll contact you within 24 hours.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Actions Bar -->
+                    <div class="flex items-center justify-between mt-5 pt-5 border-t border-slate-800">
+                        <div class="flex items-center gap-3">
+                            <a href="https://wa.me/91-7499462967?text=Hi%2C%20I%20just%20completed%20the%20assessment%20and%20scored%20${percentage}%25.%20I%27d%20like%20to%20discuss%20algo%20trading%20options."
+                               target="_blank"
+                               class="inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors text-sm">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Us
+                            </a>
+                            <a href="pricing.html"
+                               class="inline-flex items-center gap-2 bg-slate-800 text-white px-4 py-2 rounded-lg font-medium hover:bg-slate-700 transition-colors text-sm border border-slate-700">
+                                <i class="fas fa-tags"></i> View Pricing
+                            </a>
+                        </div>
+                        <div class="text-gray-500 text-xs">
+                            <i class="fas fa-shield-alt text-green-500 mr-1"></i> Your data is safe with us
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Attach form submission handler
+            document.getElementById('consultation-form').addEventListener('submit', handleConsultationForm);
+        }
+
+        // Retake Quiz
+        function retakeQuiz() {
+            currentQuestion = 0;
+            answers = [];
+            userScore = 0;
+            resultsContainer.classList.add('hidden');
+            document.getElementById('quiz-section').classList.remove('hidden');
+            renderQuestion();
+        }
+
+        // Send to Telegram
+        async function sendToTelegram(data) {
+            const botToken = '8240997695:AAGauvdZob2Te4br63dNH6z5pLmvZf9UaJ4';
+            const chatId = '7068221878';
+
+            const maxScore = questions.length * 4;
+            const percentage = Math.round((data.score / maxScore) * 100);
+
+            let level;
+            if (percentage >= 80) level = "Expert Ready";
+            else if (percentage >= 60) level = "Well Prepared";
+            else if (percentage >= 40) level = "Getting There";
+            else level = "Just Starting";
+
+            // Build answers summary
+            const answersSummary = answers.map((ans, idx) => {
+                const q = questions[idx];
+                return `Q${idx + 1}: ${q.options[ans.optionIndex].text}`;
+            }).join('\n');
+
+            const message = `
+🎯 *New Assessment Lead*
+
+👤 *Contact Details:*
+• Name: ${data.name}
+• Email: ${data.email}
+• Phone: ${data.phone || 'Not provided'}
+
+📊 *Assessment Results:*
+• Score: ${data.score}/${maxScore} (${percentage}%)
+• Level: ${level}
+
+📝 *Responses:*
+${answersSummary}
+
+⏰ Submitted: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
+            `.trim();
+
+            try {
+                await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+            } catch (error) {
+                console.error('Telegram notification failed:', error);
+            }
+        }
+
+        // Handle Consultation Form Submission
+        async function handleConsultationForm(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const phoneInput = form.querySelector('#phone');
+            const phoneError = form.querySelector('#phone-error');
+            const phone = phoneInput.value.trim();
+
+            // Validate phone if entered
+            if (phone && phone.length !== 10) {
+                phoneError.classList.remove('hidden');
+                phoneInput.classList.add('border-red-500');
+                phoneInput.focus();
+                return;
+            } else {
+                phoneError.classList.add('hidden');
+                phoneInput.classList.remove('border-red-500');
+            }
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Submitting...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+            const name = formData.get('name');
+            const email = formData.get('email');
+
+            // Send to Telegram
+            await sendToTelegram({
+                name,
+                email,
+                phone: phone || null,
+                score: userScore
+            });
+
+            // Hide form, show success message
+            document.getElementById('consultation-form-card').classList.add('hidden');
+            document.getElementById('form-success').classList.remove('hidden');
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('navbar-blur');
+            } else {
+                navbar.classList.remove('navbar-blur');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Initialize Quiz
+        renderQuestion();
+    </script>
+</body>
+</html>
