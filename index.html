@@ -196,424 +196,359 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center pt-16">
+    <section id="home" class="relative min-h-[90vh] flex items-center py-12 overflow-hidden">
         <div class="absolute inset-0 grid-background opacity-20"></div>
-        
+
         <!-- Animated Background Elements -->
         <div class="absolute inset-0 overflow-hidden">
             <div class="absolute w-96 h-96 bg-blue-600/10 rounded-full blur-3xl -top-48 -left-48 animate-float"></div>
             <div class="absolute w-96 h-96 bg-green-600/10 rounded-full blur-3xl -bottom-48 -right-48 animate-float-delayed"></div>
         </div>
-        
+
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Left Content -->
-                <div>
-                    <div class="inline-flex items-center gap-2 bg-slate-900 px-4 py-2 rounded-full border border-slate-800 mb-6">
-                        <span class="w-2 h-2 bg-green-500 rounded-full pulse"></span>
-                        <span class="text-sm">Trusted by 500+ Traders Across India</span>
-                    </div>
-
+                <div class="hero-fade-in">
                     <!-- Animated Hook Line -->
                     <div class="mb-4">
-                        <span class="text-2xl md:text-3xl font-semibold text-gray-400">Your Strategy.</span>
-                        <span class="text-2xl md:text-3xl font-bold">
+                        <span class="text-lg md:text-xl font-medium text-gray-400">Your Data.</span>
+                        <span class="text-lg md:text-xl font-bold">
                             <span class="typewriter-text gradient-text" id="typewriter"></span>
                             <span class="typewriter-cursor">|</span>
                         </span>
                     </div>
 
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                        Stop Watching Charts.<br>
-                        <span class="gradient-text">Start Making Money.</span>
+                        Smarter Dashboards.<br>
+                        <span class="gradient-text">Better Decisions.</span>
                     </h1>
 
-                    <p class="text-xl text-gray-400 mb-8">
-                        We build trading bots that work while you sleep. From strategy to deployment in weeks — fully automated, rigorously backtested, and tailored to Indian markets.
+                    <p class="text-xl text-gray-400 mb-8 max-w-lg">
+                        Custom trading dashboards that turn market noise into actionable insights. Track P&L, monitor positions, and execute faster.
                     </p>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4 mb-8">
-                        <a href="contact.html" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors animated-button text-center">
-                            Start Building <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
 
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="contact.html" class="group bg-blue-600 text-white px-8 py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-600/25 text-lg text-center">
+                            Get Started <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="pricing.html" class="bg-slate-800/50 backdrop-blur text-white px-8 py-4 rounded-xl font-semibold hover:bg-slate-700/50 transition-all duration-300 border border-slate-700 text-lg text-center">
+                            View Pricing
+                        </a>
                     </div>
-                    
                 </div>
-                
-                <!-- Right Content - Enhanced Terminal -->
-                <div class="relative">
-                    <div class="terminal glow-blue">
-                        <div class="terminal-header">
-                            <div class="terminal-dot bg-red-500"></div>
-                            <div class="terminal-dot bg-yellow-500"></div>
-                            <div class="terminal-dot bg-green-500"></div>
-                            <span class="text-gray-500 text-sm ml-2">strategy_executor.py</span>
+
+                <!-- Right Content - Dashboard Visual -->
+                <div class="relative hero-fade-in" style="animation-delay: 0.2s">
+                    <!-- Main Dashboard Card -->
+                    <div class="bg-slate-900/80 backdrop-blur-xl rounded-2xl border border-slate-700/50 p-6 shadow-2xl">
+                        <!-- Dashboard Header -->
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="flex items-center gap-3">
+                                <div class="w-3 h-3 bg-green-500 rounded-full pulse"></div>
+                                <span class="text-white font-semibold">Live Dashboard</span>
+                            </div>
+                            <span class="text-xs text-gray-500">Updated: Just now</span>
                         </div>
-                        <div class="p-6 text-sm">
-                            <div class="text-green-400 mb-2"># Initialize PineCoder Strategy Engine</div>
-                            <div class="text-white">strategy = <span class="text-blue-400">PineCoder</span>(<span class="text-yellow-400">'NIFTY_Options_Strategy'</span>)</div>
-                            <div class="text-white">strategy.<span class="text-blue-400">connect_broker</span>(<span class="text-yellow-400">'zerodha'</span>)</div>
-                            <div class="text-white mb-2">strategy.<span class="text-blue-400">set_capital</span>(<span class="text-purple-400">500000</span>)</div>
-                            
-                            <div class="text-green-400 mb-2"># Configure advanced risk management</div>
-                            <div class="text-white">strategy.<span class="text-blue-400">configure_risk</span>({</div>
-                            <div class="text-white ml-4"><span class="text-yellow-400">'max_drawdown'</span>: <span class="text-purple-400">0.15</span>,</div>
-                            <div class="text-white ml-4"><span class="text-yellow-400">'position_sizing'</span>: <span class="text-yellow-400">'kelly'</span>,</div>
-                            <div class="text-white ml-4"><span class="text-yellow-400">'hedging'</span>: <span class="text-green-400">True</span></div>
-                            <div class="text-white">})</div>
-                            
-                            <div class="text-gray-500 mt-4"># Live execution started...</div>
-                            <div class="text-green-400">✓ Connected to Zerodha Kite</div>
-                            <div class="text-green-400">✓ Market data streaming...</div>
-                            <div class="text-green-400">✓ Strategy running profitably</div>
-                            <div class="text-yellow-400 mt-2">→ Current P&L: <span class="text-green-400">+₹12,450</span> (2.49%)</div>
+
+                        <!-- P&L Cards Row -->
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <!-- Today's P&L -->
+                            <div class="bg-gradient-to-br from-green-600/20 to-green-600/5 rounded-xl p-4 border border-green-500/20">
+                                <div class="text-xs text-gray-400 mb-1">Today's P&L</div>
+                                <div class="text-2xl font-bold text-green-400">+₹24,850</div>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <i class="fas fa-arrow-up text-green-400 text-xs"></i>
+                                    <span class="text-green-400 text-sm">+3.2%</span>
+                                </div>
+                            </div>
+                            <!-- Weekly P&L -->
+                            <div class="bg-gradient-to-br from-blue-600/20 to-blue-600/5 rounded-xl p-4 border border-blue-500/20">
+                                <div class="text-xs text-gray-400 mb-1">This Week</div>
+                                <div class="text-2xl font-bold text-blue-400">+₹1,42,300</div>
+                                <div class="flex items-center gap-1 mt-1">
+                                    <i class="fas fa-arrow-up text-blue-400 text-xs"></i>
+                                    <span class="text-blue-400 text-sm">+8.7%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mini Chart Area -->
+                        <div class="bg-slate-800/50 rounded-xl p-4 mb-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="text-sm text-gray-400">Portfolio Value</span>
+                                <span class="text-white font-semibold">₹18,42,500</span>
+                            </div>
+                            <!-- Fake Chart Line -->
+                            <div class="h-16 flex items-end gap-1">
+                                <div class="flex-1 bg-gradient-to-t from-green-500/40 to-green-500/10 rounded-t" style="height: 45%"></div>
+                                <div class="flex-1 bg-gradient-to-t from-green-500/40 to-green-500/10 rounded-t" style="height: 60%"></div>
+                                <div class="flex-1 bg-gradient-to-t from-red-500/40 to-red-500/10 rounded-t" style="height: 40%"></div>
+                                <div class="flex-1 bg-gradient-to-t from-green-500/40 to-green-500/10 rounded-t" style="height: 70%"></div>
+                                <div class="flex-1 bg-gradient-to-t from-green-500/40 to-green-500/10 rounded-t" style="height: 55%"></div>
+                                <div class="flex-1 bg-gradient-to-t from-green-500/40 to-green-500/10 rounded-t" style="height: 80%"></div>
+                                <div class="flex-1 bg-gradient-to-t from-green-500/40 to-green-500/10 rounded-t" style="height: 75%"></div>
+                                <div class="flex-1 bg-gradient-to-t from-red-500/40 to-red-500/10 rounded-t" style="height: 50%"></div>
+                                <div class="flex-1 bg-gradient-to-t from-green-500/40 to-green-500/10 rounded-t" style="height: 85%"></div>
+                                <div class="flex-1 bg-gradient-to-t from-green-500/40 to-green-500/10 rounded-t" style="height: 90%"></div>
+                                <div class="flex-1 bg-gradient-to-t from-green-500/40 to-green-500/10 rounded-t" style="height: 95%"></div>
+                                <div class="flex-1 bg-gradient-to-t from-green-500/60 to-green-500/20 rounded-t animate-pulse" style="height: 100%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Active Positions -->
+                        <div class="space-y-3">
+                            <div class="text-xs text-gray-400 mb-2">Active Positions</div>
+                            <div class="flex items-center justify-between bg-slate-800/30 rounded-lg p-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center">
+                                        <span class="text-blue-400 text-xs font-bold">N</span>
+                                    </div>
+                                    <div>
+                                        <div class="text-white text-sm font-medium">NIFTY 24500 CE</div>
+                                        <div class="text-gray-500 text-xs">2 lots • Avg: ₹245</div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-green-400 font-semibold">+₹4,200</div>
+                                    <div class="text-green-400 text-xs">+8.57%</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between bg-slate-800/30 rounded-lg p-3">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-purple-600/20 rounded-lg flex items-center justify-center">
+                                        <span class="text-purple-400 text-xs font-bold">B</span>
+                                    </div>
+                                    <div>
+                                        <div class="text-white text-sm font-medium">BANKNIFTY FUT</div>
+                                        <div class="text-gray-500 text-xs">1 lot • Avg: ₹52,400</div>
+                                    </div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="text-red-400 font-semibold">-₹1,850</div>
+                                    <div class="text-red-400 text-xs">-0.35%</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Floating Elements -->
-                    <div class="absolute -top-4 -right-4 bg-green-600 text-white px-4 py-2 rounded-lg text-sm font-semibold animate-pulse">
-                        <i class="fas fa-check-circle mr-1"></i> Live Trading
+
+                    <!-- Floating Badge -->
+                    <div class="absolute -top-3 -right-3 bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg shadow-green-600/25 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+                        Live Data
                     </div>
-                    
-                    <!-- Performance Badge -->
-                    <div class="absolute -bottom-4 -left-4 bg-slate-900 border border-slate-800 p-4 rounded-lg">
-                        <div class="text-xs text-gray-500 mb-1">Today's Performance</div>
-                        <div class="flex items-center gap-2">
-                            <i class="fas fa-chart-line text-green-500"></i>
-                            <span class="text-green-500 font-semibold">+18.2%</span>
+
+                    <!-- Floating Notification -->
+                    <div class="absolute -bottom-4 -left-4 bg-slate-800 border border-slate-700 rounded-xl p-3 shadow-xl max-w-[200px] hero-fade-in" style="animation-delay: 0.6s">
+                        <div class="flex items-start gap-2">
+                            <div class="w-8 h-8 bg-green-600/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-check text-green-400 text-sm"></i>
+                            </div>
+                            <div>
+                                <div class="text-white text-xs font-medium">Trade Executed</div>
+                                <div class="text-gray-500 text-xs">NIFTY CE +₹2,400</div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block">
+            <i class="fas fa-chevron-down text-gray-500 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Trust Bar -->
+    <section class="py-6 border-y border-slate-800 bg-slate-900/30">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 text-gray-500">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-shield-alt text-green-500"></i>
+                    <span class="text-sm">Bank-Grade Security</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-bolt text-yellow-500"></i>
+                    <span class="text-sm">Sub-ms Execution</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-headset text-blue-500"></i>
+                    <span class="text-sm">Dedicated Support</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-chart-line text-purple-500"></i>
+                    <span class="text-sm">Proven Results</span>
                 </div>
             </div>
         </div>
     </section>
 
 
-    <!-- Services Section Enhanced -->
+    <!-- What We Build Section -->
     <section id="services" class="py-20 relative">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <div class="inline-flex items-center gap-2 bg-blue-600/10 px-4 py-2 rounded-full mb-4">
-                    <i class="fas fa-cog text-blue-500"></i>
-                    <span class="text-blue-500 font-semibold uppercase tracking-wider text-sm">Our Services</span>
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-                    End-to-End <span class="gradient-text">Automated Algorithmic Trading</span> Solutions
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
+                    What We Build
                 </h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                    From ideation to execution, we handle every aspect of your automated algorithmic trading journey
+                <p class="text-xl text-gray-400">
+                    Three core solutions. One mission: automate your profits.
                 </p>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="grid md:grid-cols-3 gap-6">
                 <!-- Service 1 -->
-                <div class="feature-card bg-slate-900 p-8 rounded-2xl group hover:scale-105 transition-transform duration-300">
-                    <div class="w-14 h-14 bg-blue-600/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600/30 transition-colors">
-                        <i class="fas fa-code text-blue-500 text-2xl"></i>
+                <div class="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur p-8 rounded-2xl border border-slate-700/50 hover:border-blue-500/50 transition-all duration-500 hover:-translate-y-2">
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-robot text-blue-500 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Trading Bots</h3>
+                        <p class="text-gray-400 mb-6">
+                            Fully automated systems for stocks, F&O, and crypto. Works with Zerodha, Angel One, and more.
+                        </p>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                Multi-broker support
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                Risk management built-in
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                Real-time monitoring
+                            </li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Strategy Development</h3>
-                    <p class="text-gray-400 mb-4">
-                        Transform your trading logic into sophisticated algorithms. We code in Pine Script, Python, MQL, and more.
-                    </p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Multi-timeframe analysis</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Complex option strategies</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Machine learning integration</li>
-                    </ul>
-                    <a href="contact.html" class="inline-flex items-center text-blue-500 hover:text-blue-400 mt-4 font-semibold">
-                        Get Quote <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-
                 </div>
-                
+
                 <!-- Service 2 -->
-                <div class="feature-card bg-slate-900 p-8 rounded-2xl group hover:scale-105 transition-transform duration-300">
-                    <div class="w-14 h-14 bg-green-600/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-green-600/30 transition-colors">
-                        <i class="fas fa-robot text-green-500 text-2xl"></i>
+                <div class="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur p-8 rounded-2xl border border-slate-700/50 hover:border-green-500/50 transition-all duration-500 hover:-translate-y-2">
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-600/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-green-600/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-code text-green-500 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Pine Script & Indicators</h3>
+                        <p class="text-gray-400 mb-6">
+                            Custom TradingView indicators, alerts, and strategies coded to your exact specifications.
+                        </p>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                Custom indicators
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                Alert systems
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                Strategy scripts
+                            </li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Automation & Execution</h3>
-                    <p class="text-gray-400 mb-4">
-                        Deploy your strategies across multiple brokers with our robust execution infrastructure.
-                    </p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Ultra-low latency execution</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Smart order routing</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>24/7 monitoring</li>
-                    </ul>
-                    <a href="contact.html" class="inline-flex items-center text-blue-500 hover:text-blue-400 mt-4 font-semibold">
-                        Get Quote <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-
                 </div>
-                
+
                 <!-- Service 3 -->
-                <div class="feature-card bg-slate-900 p-8 rounded-2xl group hover:scale-105 transition-transform duration-300">
-                    <div class="w-14 h-14 bg-purple-600/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-purple-600/30 transition-colors">
-                        <i class="fas fa-chart-line text-purple-500 text-2xl"></i>
+                <div class="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur p-8 rounded-2xl border border-slate-700/50 hover:border-purple-500/50 transition-all duration-500 hover:-translate-y-2">
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-purple-600/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-flask text-purple-500 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-3">Backtesting & Research</h3>
+                        <p class="text-gray-400 mb-6">
+                            Validate strategies with 10+ years of data before risking real capital.
+                        </p>
+                        <ul class="space-y-3 text-sm text-gray-400">
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                Historical analysis
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                Performance reports
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                Strategy optimization
+                            </li>
+                        </ul>
                     </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Backtesting & Research</h3>
-                    <p class="text-gray-400 mb-4">
-                        Validate your strategies with comprehensive historical analysis and optimization.
-                    </p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>10+ years historical data</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Walk-forward analysis</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Monte Carlo simulation</li>
-                    </ul>
-                    <a href="contact.html" class="inline-flex items-center text-blue-500 hover:text-blue-400 mt-4 font-semibold">
-                        Get Quote <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-
-                </div>
-                
-                <!-- Service 4 -->
-                <div class="feature-card bg-slate-900 p-8 rounded-2xl group hover:scale-105 transition-transform duration-300">
-                    <div class="w-14 h-14 bg-yellow-600/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-yellow-600/30 transition-colors">
-                        <i class="fas fa-shield-alt text-yellow-500 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Risk Management</h3>
-                    <p class="text-gray-400 mb-4">
-                        Protect your capital with institutional-grade risk controls and portfolio management.
-                    </p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Dynamic position sizing</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Portfolio hedging</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Real-time risk metrics</li>
-                    </ul>
-                    <a href="contact.html" class="inline-flex items-center text-blue-500 hover:text-blue-400 mt-4 font-semibold">
-                        Get Quote <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-
-                </div>
-                
-                <!-- Service 5 -->
-                <div class="feature-card bg-slate-900 p-8 rounded-2xl group hover:scale-105 transition-transform duration-300">
-                    <div class="w-14 h-14 bg-red-600/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-red-600/30 transition-colors">
-                        <i class="fas fa-tachometer-alt text-red-500 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Custom Indicators</h3>
-                    <p class="text-gray-400 mb-4">
-                        Develop proprietary indicators and scanners tailored to your trading style.
-                    </p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>TradingView indicators</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Real-time scanners</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Custom alerts</li>
-                    </ul>
-                    <a href="contact.html" class="inline-flex items-center text-blue-500 hover:text-blue-400 mt-4 font-semibold">
-                        Get Quote <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-
-                </div>
-                
-                <!-- Service 6 -->
-                <div class="feature-card bg-slate-900 p-8 rounded-2xl group hover:scale-105 transition-transform duration-300">
-                    <div class="w-14 h-14 bg-indigo-600/20 rounded-lg flex items-center justify-center mb-6 group-hover:bg-indigo-600/30 transition-colors">
-                        <i class="fas fa-graduation-cap text-indigo-500 text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-3">Training & Support</h3>
-                    <p class="text-gray-400 mb-4">
-                        Learn to build and manage your own strategies with our comprehensive training programs.
-                    </p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>1-on-1 mentoring</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Strategy workshops</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Lifetime support</li>
-                    </ul>
-                    <a href="contact.html" class="inline-flex items-center text-blue-500 hover:text-blue-400 mt-4 font-semibold">
-                        Get Quote <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="py-20 bg-slate-900/50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-                    Why Choose <span class="gradient-text">PineCoder FinTech</span>?
-                </h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                    We combine technical expertise with deep market understanding
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-blue-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-users text-blue-500 text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Domain Experts</h3>
-                    <p class="text-gray-400">10+ years of combined trading and development experience</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-green-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-bolt text-green-500 text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Fast Execution</h3>
-                    <p class="text-gray-400">Sub-millisecond latency with colocated servers</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-lock text-purple-500 text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">100% Secure</h3>
-                    <p class="text-gray-400">Bank-grade encryption and secure API handling</p>
-                </div>
-                
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-yellow-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-headset text-yellow-500 text-3xl"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold text-white mb-2">Dedicated Support</h3>
-                    <p class="text-gray-400">Mon-Fri, 9 AM - 6 PM IST with prompt responses</p>
-                </div>
+            <div class="text-center mt-12">
+                <a href="pricing.html" class="inline-flex items-center gap-2 text-blue-500 hover:text-blue-400 font-semibold text-lg group">
+                    See all services & pricing <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
             </div>
         </div>
     </section>
 
 
-    <!-- How It Works Section Enhanced -->
+    <!-- How It Works - Simple 3 Steps -->
     <section id="how-it-works" class="py-20 bg-slate-900/50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-                    Our <span class="gradient-text">Development Process</span>
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
+                    How It Works
                 </h2>
-                <p class="text-xl text-gray-400 max-w-3xl mx-auto">
-                    A proven methodology to transform your ideas into profitable algorithms
+                <p class="text-xl text-gray-400">
+                    From idea to live trading in 3 simple steps
                 </p>
             </div>
-            
-            <div class="max-w-5xl mx-auto">
-                <!-- Process Timeline -->
-                <div class="relative">
-                    <!-- Connecting Line -->
-                    <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-green-600 hidden md:block"></div>
-                    
-                    <!-- Step 1 -->
-                    <div class="relative flex items-start mb-12">
-                        <div class="flex-shrink-0 w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
-                            1
-                        </div>
-                        <div class="ml-8 flex-1">
-                            <div class="flex items-center gap-3 mb-3">
-                                <h3 class="text-2xl font-semibold text-white">Discovery Call</h3>
-                                <span class="bg-blue-600/20 text-blue-500 px-3 py-1 rounded-full text-sm">15-30 mins</span>
-                            </div>
-                            <p class="text-gray-400 mb-4">
-                                We understand your trading style, goals, and strategy requirements. Our experts provide initial feasibility assessment and recommendations.
-                            </p>
-                            <div class="bg-slate-800 p-4 rounded-lg">
-                                <ul class="space-y-2 text-sm text-gray-400">
-                                    <li><i class="fas fa-check text-green-500 mr-2"></i>Strategy feasibility analysis</li>
-                                    <li><i class="fas fa-check text-green-500 mr-2"></i>Technology stack recommendation</li>
-                                    <li><i class="fas fa-check text-green-500 mr-2"></i>Timeline and cost estimation</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 2 -->
-                    <div class="relative flex items-start mb-12">
-                        <div class="flex-shrink-0 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
-                            2
-                        </div>
-                        <div class="ml-8 flex-1">
-                            <div class="flex items-center gap-3 mb-3">
-                                <h3 class="text-2xl font-semibold text-white">Development & Testing</h3>
-                                <span class="bg-blue-600/20 text-blue-500 px-3 py-1 rounded-full text-sm">7-14 days</span>
-                            </div>
-                            <p class="text-gray-400 mb-4">
-                                Our team codes your strategy with best practices, implements comprehensive backtesting, and optimizes for performance.
-                            </p>
-                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div class="bg-slate-800 p-4 rounded-lg text-center">
-                                    <i class="fas fa-code text-blue-500 text-2xl mb-2"></i>
-                                    <p class="text-sm text-gray-400">Clean Code</p>
-                                </div>
-                                <div class="bg-slate-800 p-4 rounded-lg text-center">
-                                    <i class="fas fa-flask text-green-500 text-2xl mb-2"></i>
-                                    <p class="text-sm text-gray-400">Rigorous Testing</p>
-                                </div>
-                                <div class="bg-slate-800 p-4 rounded-lg text-center">
-                                    <i class="fas fa-chart-bar text-purple-500 text-2xl mb-2"></i>
-                                    <p class="text-sm text-gray-400">Performance Reports</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 3 -->
-                    <div class="relative flex items-start mb-12">
-                        <div class="flex-shrink-0 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
-                            3
-                        </div>
-                        <div class="ml-8 flex-1">
-                            <div class="flex items-center gap-3 mb-3">
-                                <h3 class="text-2xl font-semibold text-white">Paper Trading</h3>
-                                <span class="bg-green-600/20 text-green-500 px-3 py-1 rounded-full text-sm">5-10 days</span>
-                            </div>
-                            <p class="text-gray-400 mb-4">
-                                Test your strategy in real market conditions without risk. Monitor performance and make adjustments as needed.
-                            </p>
-                            <div class="bg-gradient-to-r from-green-900/20 to-blue-900/20 p-4 rounded-lg border border-green-600/30">
-                                <div class="flex items-center justify-between mb-2">
-                                    <span class="text-white font-semibold">Paper Trading Active</span>
-                                    <span class="flex items-center gap-2">
-                                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                                        <span class="text-green-500 text-sm">Running</span>
-                                    </span>
-                                </div>
-                                <div class="text-sm text-gray-400">
-                                    Real-time performance tracking • Risk metrics • Trade logs
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Step 4 -->
-                    <div class="relative flex items-start">
-                        <div class="flex-shrink-0 w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl z-10">
-                            4
-                        </div>
-                        <div class="ml-8 flex-1">
-                            <div class="flex items-center gap-3 mb-3">
-                                <h3 class="text-2xl font-semibold text-white">Live Deployment</h3>
-                                <span class="bg-green-600/20 text-green-500 px-3 py-1 rounded-full text-sm">Same day</span>
-                            </div>
-                            <p class="text-gray-400 mb-4">
-                                Deploy to live markets with full monitoring and support. Scale up gradually with our guidance.
-                            </p>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div class="bg-slate-800 p-4 rounded-lg">
-                                    <i class="fas fa-rocket text-green-500 mb-2"></i>
-                                    <h4 class="text-white font-semibold mb-1">Go Live</h4>
-                                    <p class="text-sm text-gray-400">Seamless deployment to production</p>
-                                </div>
-                                <div class="bg-slate-800 p-4 rounded-lg">
-                                    <i class="fas fa-shield-alt text-blue-500 mb-2"></i>
-                                    <h4 class="text-white font-semibold mb-1">Dedicated Support</h4>
-                                    <p class="text-sm text-gray-400">Mon-Fri, 9 AM - 6 PM IST</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- CTA -->
-                <div class="text-center mt-12">
-                    <p class="text-gray-400 mb-4">Ready to start your automated algorithmic trading journey?</p>
-                    <a href="contact.html" class="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors animated-button">
-                        Schedule Discovery Call <i class="fas fa-calendar-check"></i>
-                    </a>
 
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8 relative">
+                    <!-- Connecting Line -->
+                    <div class="hidden md:block absolute top-16 left-[20%] right-[20%] h-0.5 bg-gradient-to-r from-blue-600 via-green-500 to-purple-600"></div>
+
+                    <!-- Step 1 -->
+                    <div class="text-center relative">
+                        <div class="w-32 h-32 mx-auto mb-6 relative">
+                            <div class="absolute inset-0 bg-blue-600/20 rounded-full animate-ping-slow"></div>
+                            <div class="relative w-full h-full bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center">
+                                <span class="text-4xl font-bold text-white">1</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Tell Us Your Strategy</h3>
+                        <p class="text-gray-400">
+                            Share your trading logic. We'll assess feasibility and provide a quote.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="text-center relative">
+                        <div class="w-32 h-32 mx-auto mb-6 relative">
+                            <div class="absolute inset-0 bg-green-600/20 rounded-full animate-ping-slow" style="animation-delay: 0.5s"></div>
+                            <div class="relative w-full h-full bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                                <span class="text-4xl font-bold text-white">2</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">We Build & Test</h3>
+                        <p class="text-gray-400">
+                            Our team codes, backtests, and optimizes your bot for performance.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="text-center relative">
+                        <div class="w-32 h-32 mx-auto mb-6 relative">
+                            <div class="absolute inset-0 bg-purple-600/20 rounded-full animate-ping-slow" style="animation-delay: 1s"></div>
+                            <div class="relative w-full h-full bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
+                                <span class="text-4xl font-bold text-white">3</span>
+                            </div>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Go Live</h3>
+                        <p class="text-gray-400">
+                            Deploy to your broker account. Your bot trades while you relax.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -622,130 +557,75 @@
 
 
 
-    <!-- CTA Section Enhanced -->
+    <!-- CTA Section -->
     <section id="contact" class="py-20">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-gradient-to-r from-blue-900/30 to-green-900/30 rounded-3xl p-12 border border-blue-600/30 text-center relative overflow-hidden">
-                <!-- Background Animation -->
-                <div class="absolute inset-0">
-                    <div class="absolute w-96 h-96 bg-blue-600/20 rounded-full blur-3xl -top-48 -left-48 animate-float"></div>
-                    <div class="absolute w-96 h-96 bg-green-600/20 rounded-full blur-3xl -bottom-48 -right-48 animate-float-delayed"></div>
-                </div>
-                
-                <div class="relative z-10">
-                    <div class="inline-flex items-center gap-2 bg-green-600/20 px-4 py-2 rounded-full mb-6">
-                        <i class="fas fa-rocket text-green-500"></i>
-                        <span class="text-green-500 font-semibold">Limited Time Offer</span>
-                    </div>
-                    
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Ready to Automate Your Trading Strategy?
+            <div class="relative rounded-3xl overflow-hidden">
+                <!-- Gradient Background -->
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700"></div>
+                <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%23ffffff\" fill-opacity=\"0.05\"%3E%3Cpath d=\"M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+
+                <div class="relative px-8 py-16 md:py-20 text-center">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">
+                        Ready to Automate?
                     </h2>
-                    <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-                        Get started with a free consultation and receive 20% off on your first strategy development
+                    <p class="text-xl text-blue-100 mb-10 max-w-xl mx-auto">
+                        Let's discuss your strategy. Free consultation, no obligations.
                     </p>
-                    
-                    <div class="flex flex-col md:flex-row gap-6 justify-center items-center mb-8">
-                        <a href="https://wa.me/917499462967?text=Hi%2C%20I%27m%20interested%20in%20algorithmic%20trading%20development%20services" target="_blank" class="bg-green-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center gap-3 animated-button">
-                            <i class="fab fa-whatsapp text-2xl"></i>
-                            WhatsApp Us Now
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                        <a href="contact.html" class="group bg-white text-blue-700 px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all duration-300 hover:scale-105 shadow-lg">
+                            Start Your Project <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
                         </a>
-                        <a href="mailto:contact@pinecoder.in" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors flex items-center gap-3 animated-button">
-                            <i class="fas fa-envelope text-xl"></i>
-                            Email Us
-                        </a>
-                        <a href="tel:+917499462967" class="bg-slate-800 text-white px-8 py-4 rounded-lg font-semibold hover:bg-slate-700 transition-colors flex items-center gap-3">
-                            <i class="fas fa-phone text-xl"></i>
-                            Call Now
+                        <a href="https://wa.me/917499462967?text=Hi%2C%20I%27m%20interested%20in%20algo%20trading%20services" target="_blank" class="group bg-green-500 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-green-600 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-2xl"></i> WhatsApp Us
                         </a>
                     </div>
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-                        <div class="flex items-center justify-center gap-2 text-gray-400">
-                            <i class="fas fa-clock text-green-500"></i>
-                            <span>Quick Response</span>
-                        </div>
-                        <div class="flex items-center justify-center gap-2 text-gray-400">
-                            <i class="fas fa-shield-alt text-green-500"></i>
-                            <span>100% Confidential</span>
-                        </div>
-                        <div class="flex items-center justify-center gap-2 text-gray-400">
-                            <i class="fas fa-users text-green-500"></i>
-                            <span>Expert Team</span>
-                        </div>
-                    </div>
+
+                    <p class="text-blue-200 text-sm">
+                        <i class="fas fa-bolt mr-1"></i> Typically respond within 2 hours
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Enhanced -->
+    <!-- Footer - Simplified -->
     <footer class="bg-slate-950 py-12 border-t border-slate-800">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
                 <div>
-                    <h3 class="text-2xl font-bold mb-4">
+                    <a href="index.html" class="text-2xl font-bold">
                         <span class="text-white">Pine</span><span class="gradient-text">Coder.in</span>
-                    </h3>
-                    <p class="text-gray-400 mb-4">
-                        India's premier automated algorithmic trading development company. Transform your trading ideas into profitable algorithms.
-                    </p>
+                    </a>
+                    <p class="text-gray-500 text-sm mt-2">Automated trading solutions for Indian markets</p>
                 </div>
-                
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Quick Links</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
-                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="pricing.html" class="text-gray-400 hover:text-white transition-colors">Pricing</a></li>
-                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
-                    </ul>
+
+                <div class="flex flex-wrap justify-center gap-6 text-sm">
+                    <a href="about.html" class="text-gray-400 hover:text-white transition-colors">About</a>
+                    <a href="pricing.html" class="text-gray-400 hover:text-white transition-colors">Pricing</a>
+                    <a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a>
+                    <a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a>
                 </div>
-                
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Resources</h4>
-                    <ul class="space-y-2">
-                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition-colors">Blog</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition-colors">Services</a></li>
-                        <li><a href="contact.html#faq" class="text-gray-400 hover:text-white transition-colors">FAQ</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Contact Info</h4>
-                    <ul class="space-y-3">
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-map-marker-alt text-blue-500 mt-1"></i>
-                            <span class="text-gray-400">Nagpur, Maharashtra, India</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-phone text-blue-500 mt-1"></i>
-                            <a href="tel:+917499462967" class="text-gray-400 hover:text-white transition-colors">+91 749-946-2967</a>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-envelope text-blue-500 mt-1"></i>
-                            <a href="mailto:contact@pinecoder.in" class="text-gray-400 hover:text-white transition-colors">contact@pinecoder.in</a>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fab fa-whatsapp text-green-500 mt-1"></i>
-                            <a href="https://wa.me/917499462967" target="_blank" class="text-gray-400 hover:text-white transition-colors">WhatsApp Support</a>
-                        </li>
-                    </ul>
+
+                <div class="flex gap-4">
+                    <a href="https://wa.me/917499462967" target="_blank" class="w-10 h-10 bg-slate-800 hover:bg-green-600 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition-all">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="mailto:contact@pinecoder.in" class="w-10 h-10 bg-slate-800 hover:bg-blue-600 rounded-full flex items-center justify-center text-gray-400 hover:text-white transition-all">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
-            
-            <div class="border-t border-slate-800 pt-8">
-                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p class="text-gray-500 text-sm">
-                        © 2025 Aarohan Enterprises (PineCoder FinTech). All rights reserved.
-                    </p>
-                    <div class="flex gap-6 text-sm">
-                        <a href="privacy-policy.html" class="text-gray-500 hover:text-white transition-colors">Privacy Policy</a>
-                        <a href="terms-of-service.html" class="text-gray-500 hover:text-white transition-colors">Terms of Service</a>
-                        <a href="disclaimer.html" class="text-gray-500 hover:text-white transition-colors">Disclaimer</a>
-                        <a href="refund-policy.html" class="text-gray-500 hover:text-white transition-colors">Refund Policy</a>
-                    </div>
 
+            <div class="border-t border-slate-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                    <p>© 2025 Aarohan Enterprises. All rights reserved.</p>
+                    <div class="flex gap-6">
+                        <a href="privacy-policy.html" class="hover:text-white transition-colors">Privacy</a>
+                        <a href="terms-of-service.html" class="hover:text-white transition-colors">Terms</a>
+                        <a href="disclaimer.html" class="hover:text-white transition-colors">Disclaimer</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -882,7 +762,7 @@
 
         // Typewriter Effect for Hook Line
         const typewriterElement = document.getElementById('typewriter');
-        const words = ['Automated.', 'Optimized.', 'Profitable.', '24/7 Active.', 'Backtested.'];
+        const words = ['Visualized.', 'Simplified.', 'Real-time.', 'Actionable.', 'Organized.'];
         let wordIndex = 0;
         let charIndex = 0;
         let isDeleting = false;
