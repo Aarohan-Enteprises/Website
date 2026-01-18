@@ -158,6 +158,28 @@ html {
     animation: pulse 2s infinite;
 }
 
+/* Typewriter Effect */
+.typewriter-cursor {
+    display: inline-block;
+    margin-left: 2px;
+    font-weight: 400;
+    animation: blink 0.7s infinite;
+    background: linear-gradient(135deg, #3b82f6, #10b981);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+.typewriter-text {
+    display: inline-block;
+    min-width: 180px;
+}
+
 /* Float Animations */
 @keyframes float {
     0%, 100% { transform: translate(0, 0) scale(1); }
