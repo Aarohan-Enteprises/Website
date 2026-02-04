@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BE8L865HWT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-BE8L865HWT');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - PineCoder.in | Get Started with Algo Trading</title>
@@ -28,6 +37,41 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://pinecoder.in/contact.html">
+
+    <!-- ContactPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "Contact PineCoder.in",
+      "description": "Contact PineCoder.in for professional automated algorithmic trading development services. Get a free consultation.",
+      "url": "https://pinecoder.in/contact.html",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "PineCoder FinTech",
+        "telephone": "+91-7499462967",
+        "email": "contact@pinecoder.in",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Nagpur",
+          "addressRegion": "Maharashtra",
+          "addressCountry": "IN"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-7499462967",
+          "contactType": "customer service",
+          "availableLanguage": ["English", "Hindi"],
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            "opens": "09:00",
+            "closes": "19:00"
+          }
+        }
+      }
+    }
+    </script>
 
     <!-- FAQPage Schema -->
     <script type="application/ld+json">
