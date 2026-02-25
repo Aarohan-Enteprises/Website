@@ -3,23 +3,21 @@ import Link from 'next/link';
 import { MainLayout } from '@/components/layouts';
 import { GridBackground, FAQAccordion } from '@/components/ui';
 import { WhatsAppIcon } from '@/components/ui/BrandIcons';
-import { pricingPlans, addOns, comparisonRows } from '@/data/pricing';
+import { pricingPlans, comparisonRows } from '@/data/pricing';
 import { pricingFAQs } from '@/data/faq';
-import { Check, Minus, Rocket, Zap, Building, AreaChart, Brain, Server, GraduationCap, Shield, RotateCcw, Headset, ArrowRight, Star } from 'lucide-react';
+import { Check, Minus, ArrowRight, Star, Shield, RotateCcw, Headset, Link2, Code2, Settings, Info } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Pricing Plans - Automated Algorithmic Trading Development',
-  description: 'Transparent pricing for automated algorithmic trading development services. Choose from starter, professional, or enterprise plans.',
+  title: 'Pricing - Trading Automation & Pine Script Development',
+  description: 'Transparent pricing for Pine Script development and broker integration services. Starting from ₹4,500. Actual quotation provided after understanding scope of work.',
   alternates: { canonical: 'https://pinecoder.in/pricing/' },
 };
 
 const planIcons: Record<string, React.ElementType> = {
-  Starter: Rocket,
-  Professional: Zap,
-  Enterprise: Building,
+  'Broker Integration': Link2,
+  'Pine Script Development': Code2,
+  'Custom Solution': Settings,
 };
-
-const addOnIcons = [AreaChart, Brain, Server, GraduationCap];
 
 export default function PricingPage() {
   return (
@@ -30,10 +28,10 @@ export default function PricingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center max-w-3xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Choose Your <span className="gradient-text">Plan</span>
+              Simple, Transparent <span className="gradient-text">Pricing</span>
             </h1>
             <p className="text-lg text-gray-400">
-              Transparent pricing. No hidden fees. Start automating your trading today.
+              Starting prices for our services. Actual quotation provided after understanding your scope of work.
             </p>
           </div>
         </div>
@@ -44,7 +42,7 @@ export default function PricingPage() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {pricingPlans.map((plan) => {
-              const Icon = planIcons[plan.name] || Rocket;
+              const Icon = planIcons[plan.name] || Code2;
               return (
                 <div
                   key={plan.name}
@@ -61,7 +59,7 @@ export default function PricingPage() {
                   )}
                   <div className="p-8">
                     <div className="flex items-center gap-3 mb-6">
-                      <div className={`w-12 h-12 ${plan.popular ? 'bg-blue-600/20' : plan.name === 'Enterprise' ? 'bg-purple-600/20' : 'bg-slate-800'} rounded-xl flex items-center justify-center`}>
+                      <div className={`w-12 h-12 ${plan.popular ? 'bg-blue-600/20' : plan.name === 'Custom Solution' ? 'bg-purple-600/20' : 'bg-slate-800'} rounded-xl flex items-center justify-center`}>
                         <Icon size={22} className={plan.iconColor} />
                       </div>
                       <div>
@@ -71,12 +69,12 @@ export default function PricingPage() {
                     </div>
 
                     <div className="mb-6">
-                      <div className="flex items-baseline gap-1">
+                      <div className="flex items-baseline gap-2">
                         <span className="text-4xl font-bold text-white">{plan.price}</span>
-                        {plan.priceLabel && <span className={plan.popular ? 'text-gray-400' : 'text-gray-500'}>{plan.priceLabel}</span>}
+                        {plan.priceLabel && <span className={`text-sm ${plan.popular ? 'text-gray-400' : 'text-gray-500'}`}>{plan.priceLabel}</span>}
                       </div>
                       <p className={`text-sm mt-1 ${plan.popular ? 'text-gray-400' : 'text-gray-500'}`}>
-                        {plan.price === 'Custom' ? 'Tailored to your needs' : 'One-time payment'}
+                        {plan.price === 'Custom' ? 'Tailored to your requirements' : 'Final price based on scope'}
                       </p>
                     </div>
 
@@ -105,8 +103,18 @@ export default function PricingPage() {
             })}
           </div>
 
+          {/* Disclaimer */}
+          <div className="max-w-2xl mx-auto mt-8">
+            <div className="flex items-start gap-3 bg-blue-600/5 border border-blue-600/20 rounded-xl p-4">
+              <Info size={18} className="text-blue-400 flex-shrink-0 mt-0.5" />
+              <p className="text-sm text-gray-400">
+                Prices shown are starting estimates. Every project is unique — we provide an accurate quotation after understanding your specific requirements and scope of work.
+              </p>
+            </div>
+          </div>
+
           {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center gap-8 mt-12 text-sm text-gray-500">
+          <div className="flex flex-wrap justify-center gap-8 mt-10 text-sm text-gray-500">
             <div className="flex items-center gap-2">
               <Shield size={16} className="text-green-500" />
               <span>Secure Payments</span>
@@ -126,15 +134,15 @@ export default function PricingPage() {
       {/* Comparison Table */}
       <section className="py-16 bg-slate-900/30">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white text-center mb-10">Compare Plans</h2>
+          <h2 className="text-2xl font-bold text-white text-center mb-10">Compare Services</h2>
           <div className="max-w-4xl mx-auto overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b border-slate-800">
                   <th className="py-4 px-4 text-left text-gray-400 font-medium text-sm">Feature</th>
-                  <th className="py-4 px-4 text-center text-gray-400 font-medium text-sm w-28">Starter</th>
-                  <th className="py-4 px-4 text-center text-blue-400 font-medium text-sm w-28 bg-blue-600/5">Pro</th>
-                  <th className="py-4 px-4 text-center text-gray-400 font-medium text-sm w-28">Enterprise</th>
+                  <th className="py-4 px-4 text-center text-gray-400 font-medium text-sm w-32">Broker Integration</th>
+                  <th className="py-4 px-4 text-center text-blue-400 font-medium text-sm w-32 bg-blue-600/5">Pine Script</th>
+                  <th className="py-4 px-4 text-center text-gray-400 font-medium text-sm w-32">Custom</th>
                 </tr>
               </thead>
               <tbody className="text-sm">
@@ -160,34 +168,6 @@ export default function PricingPage() {
                 ))}
               </tbody>
             </table>
-          </div>
-        </div>
-      </section>
-
-      {/* Add-ons */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl font-bold text-white mb-2">Add-ons & Extras</h2>
-            <p className="text-gray-400">Enhance your trading system with additional features</p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            {addOns.map((addon, idx) => {
-              const Icon = addOnIcons[idx] || AreaChart;
-              return (
-                <div key={addon.name} className="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-slate-700 transition-colors">
-                  <div className={`w-10 h-10 ${addon.iconBgColor} rounded-lg flex items-center justify-center mb-4`}>
-                    <Icon size={18} className={addon.iconColor} />
-                  </div>
-                  <h3 className="text-white font-semibold mb-1">{addon.name}</h3>
-                  <p className="text-gray-500 text-sm mb-3">{addon.description}</p>
-                  <p className="text-xl font-bold text-white">
-                    {addon.price}
-                    {addon.priceLabel && <span className="text-sm text-gray-500">{addon.priceLabel}</span>}
-                  </p>
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>

@@ -7,7 +7,7 @@ import { FloatingOrbs, GridBackground, BackToTop } from '@/components/ui';
 import {
   ArrowRight, ArrowUp, ArrowDown, Shield, Zap, Headset, TrendingUp,
   Bot, Code, Filter, CheckCircle, ChevronDown, ExternalLink,
-  BarChart3, FileText, Wrench, Route, MessageCircle, Rocket, Check
+  BarChart3, FileText, Wrench, Route, MessageCircle, Rocket, Check, Bell
 } from 'lucide-react';
 
 const typewriterWords = ['Visualized.', 'Simplified.', 'Real-time.', 'Actionable.', 'Organized.'];
@@ -283,7 +283,28 @@ export default function HomePage() {
             <p className="text-xl text-gray-400">Free tools built by our team to simplify your workflow.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <a href="https://alertsync.in" target="_blank" rel="noopener noreferrer" className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur p-8 rounded-2xl border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-500 hover:-translate-y-2 block">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative">
+                <div className="w-16 h-16 bg-cyan-600/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Bell size={30} className="text-cyan-500" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3">AlertSync</h3>
+                <p className="text-gray-400 mb-6">TradingView to Telegram webhook relay. Get your trading alerts delivered in under 100ms with zero configuration.</p>
+                <ul className="space-y-3 text-sm text-gray-400 mb-6">
+                  {['Sub-100ms alert delivery', 'Zero-config webhook URLs', 'Full audit trail & logging'].map((f) => (
+                    <li key={f} className="flex items-center gap-2">
+                      <CheckCircle size={16} className="text-green-500" />{f}
+                    </li>
+                  ))}
+                </ul>
+                <span className="inline-flex items-center gap-2 text-cyan-400 font-semibold group-hover:gap-3 transition-all">
+                  Open Tool <ExternalLink size={14} />
+                </span>
+              </div>
+            </a>
+
             <a href="https://vbc.pinecoder.in" target="_blank" rel="noopener noreferrer" className="group relative bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur p-8 rounded-2xl border border-slate-700/50 hover:border-amber-500/50 transition-all duration-500 hover:-translate-y-2 block">
               <div className="absolute inset-0 bg-gradient-to-br from-amber-600/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="relative">

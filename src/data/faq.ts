@@ -28,19 +28,19 @@ export const contactFAQs: FAQItem[] = [
 
 export const pricingFAQs: FAQItem[] = [
   {
-    question: 'Are there any hidden fees?',
-    answer: 'No hidden fees. Prices include development, testing, deployment, and support for the specified period.',
+    question: 'Are the prices fixed?',
+    answer: 'Prices shown are starting estimates. Every project is different — we provide an accurate quotation after a discovery call to understand your exact requirements and scope.',
   },
   {
     question: 'What payment methods do you accept?',
     answer: 'We accept bank transfers (NEFT/RTGS/IMPS), UPI payments, and international wire transfers.',
   },
   {
-    question: 'Can I upgrade my plan later?',
-    answer: "Yes, upgrade anytime. We'll credit the amount you've paid towards the higher plan.",
+    question: 'How does milestone-based payment work?',
+    answer: 'We break the project into phases. You pay and approve each milestone before we proceed to the next, ensuring full transparency and no risk.',
   },
   {
     question: 'Do you offer refunds?',
-    answer: 'We use milestone-based payments. You approve each phase before proceeding, ensuring transparency.',
+    answer: 'Since we use milestone-based payments, you only pay for approved work. If a milestone doesn\'t meet expectations, we revise it at no extra cost.',
   },
 ];

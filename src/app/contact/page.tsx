@@ -26,7 +26,7 @@ function ContactContent() {
   useEffect(() => {
     const plan = searchParams.get('plan');
     if (plan) {
-      const planMap: Record<string, string> = { starter: 'Starter', professional: 'Professional', enterprise: 'Enterprise' };
+      const planMap: Record<string, string> = { 'broker-integration': 'Broker Integration', 'pine-script': 'Pine Script Development', custom: 'Custom Solution' };
       const mapped = planMap[plan.toLowerCase()];
       if (mapped) setFormData((prev) => ({ ...prev, plan: mapped }));
     }
@@ -127,9 +127,9 @@ function ContactContent() {
                       <label className="block text-sm font-medium text-gray-400 mb-2">Interested Plan</label>
                       <select value={formData.plan} onChange={(e) => setFormData({ ...formData, plan: e.target.value })} className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white focus:border-blue-500 focus:bg-slate-800 transition-all">
                         <option value="">Not sure yet</option>
-                        <option value="Starter">Starter - $250</option>
-                        <option value="Professional">Professional - $500</option>
-                        <option value="Enterprise">Enterprise - Custom</option>
+                        <option value="Broker Integration">Broker Integration - ₹5,999+</option>
+                        <option value="Pine Script Development">Pine Script Development - ₹9,999+</option>
+                        <option value="Custom Solution">Custom Solution</option>
                       </select>
                     </div>
 
@@ -215,18 +215,18 @@ function ContactContent() {
                     <div className="text-sm text-gray-500">Nagpur, Maharashtra, India</div>
                   </div>
                 </div>
-                <div className="rounded-lg overflow-hidden">
+                <a href="https://maps.app.goo.gl/tMsifPuT8L1NBg9n9" target="_blank" rel="noopener noreferrer" className="block rounded-lg overflow-hidden">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238133.15800877464!2d78.9628863!3d21.1610493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c0a5a31faf13%3A0x19b37d06d0bb3e2b!2sNagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.5!2d79.1240479!3d21.1520973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c7974217c5b1%3A0xfaebf266b7db24a3!2sAarohan%20Enterprises!5e0!3m2!1sen!2sin!4v1"
                     width="100%"
                     height="140"
-                    style={{ border: 0 }}
+                    style={{ border: 0, pointerEvents: 'none' }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    className="rounded-lg grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all"
+                    className="rounded-lg"
                   />
-                </div>
+                </a>
               </div>
 
               <div className="bg-gradient-to-br from-blue-600/10 to-slate-900 border border-blue-600/20 rounded-xl p-4">
