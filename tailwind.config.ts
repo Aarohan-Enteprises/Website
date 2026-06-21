@@ -9,54 +9,50 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#0f172a',
-        secondary: '#3b82f6',
-        accent: '#10b981',
-        warning: '#f59e0b',
-        danger: '#ef4444',
-        purple: '#8b5cf6',
+        // Editorial finance palette — FT-salmon paper, warm ink, pine accent.
+        paper: '#FBEDE0',        // base salmon page
+        band: '#F4DFCD',         // deeper salmon for alternating sections
+        surface: '#FFF8F1',      // raised cards / inputs
+        ink: '#221A12',          // primary text (warm near-black)
+        'ink-soft': '#6E5C4B',   // secondary text
+        'ink-faint': '#9C8975',  // captions / tertiary
+        rule: '#E3D0BB',         // hairline rules & borders
+        'rule-strong': '#CDB295',
+        pine: '#0E5C4A',         // single accent — deep pine teal
+        'pine-dark': '#0A4236',
+        'pine-tint': '#E2ECE7',  // accent wash background
+        // Market semantics — used ONLY for real prices / P&L.
+        up: '#1B7A4B',
+        down: '#BE3A28',
+        // Legacy aliases kept so older references degrade gracefully.
+        primary: '#221A12',
+        secondary: '#0E5C4A',
+        accent: '#1B7A4B',
+      },
+      fontFamily: {
+        display: ['var(--font-display)', 'Georgia', 'serif'],
+        body: ['var(--font-body)', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
+      },
+      letterSpacing: {
+        eyebrow: '0.22em',
       },
       animation: {
-        'float': 'float 10s ease-in-out infinite',
-        'float-delayed': 'float-delayed 10s ease-in-out infinite 5s',
-        'grid-move': 'grid-move 20s linear infinite',
-        'fade-in': 'fadeIn 0.6s ease forwards',
-        'hero-fade-in': 'heroFadeIn 0.8s ease forwards',
-        'ping-slow': 'pingSlow 2s cubic-bezier(0, 0, 0.2, 1) infinite',
-        'typewriter-blink': 'blink 0.7s infinite',
+        marquee: 'marquee 40s linear infinite',
+        'fade-up': 'fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards',
         'slide-down': 'slideDown 0.3s ease forwards',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
-          '50%': { transform: 'translate(30px, -30px) scale(1.1)' },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
-        'float-delayed': {
-          '0%, 100%': { transform: 'translate(0, 0) scale(1)' },
-          '50%': { transform: 'translate(-30px, 30px) scale(1.1)' },
-        },
-        'grid-move': {
-          '0%': { transform: 'translate(0, 0)' },
-          '100%': { transform: 'translate(50px, 50px)' },
-        },
-        fadeIn: {
-          from: { opacity: '0', transform: 'translateY(20px)' },
+        fadeUp: {
+          from: { opacity: '0', transform: 'translateY(16px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
-        },
-        heroFadeIn: {
-          from: { opacity: '0', transform: 'translateY(30px)' },
-          to: { opacity: '1', transform: 'translateY(0)' },
-        },
-        pingSlow: {
-          '0%': { transform: 'scale(1)', opacity: '0.3' },
-          '75%, 100%': { transform: 'scale(1.3)', opacity: '0' },
-        },
-        blink: {
-          '0%, 50%': { opacity: '1' },
-          '51%, 100%': { opacity: '0' },
         },
         slideDown: {
-          from: { opacity: '0', transform: 'translateY(-10px)' },
+          from: { opacity: '0', transform: 'translateY(-8px)' },
           to: { opacity: '1', transform: 'translateY(0)' },
         },
       },

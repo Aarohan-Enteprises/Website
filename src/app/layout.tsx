@@ -1,20 +1,36 @@
 import type { Metadata } from 'next';
-import { Plus_Jakarta_Sans } from 'next/font/google';
+import { Fraunces, Schibsted_Grotesk, IBM_Plex_Mono } from 'next/font/google';
 import Script from 'next/script';
 import './globals.css';
 import { GA_ID } from '@/lib/analytics';
 import { siteConfig, organizationSchema, localBusinessSchema } from '@/data/seo';
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+// Editorial serif display — the masthead voice.
+const fraunces = Fraunces({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-plus-jakarta-sans',
+  weight: ['400', '500', '600', '700', '900'],
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+});
+
+// News-grade grotesque for body copy.
+const schibsted = Schibsted_Grotesk({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-body',
+});
+
+// Tabular mono for tickers, prices, labels and captions.
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-mono',
 });
 
 export const metadata: Metadata = {
   title: {
-    default: 'PineCoder.in - Professional Trading Strategy Automation Services',
-    template: '%s | PineCoder.in',
+    default: 'Aarohan Enterprises - Professional Trading Strategy Automation Services',
+    template: '%s | Aarohan Enterprises',
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
@@ -23,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: siteConfig.url,
-    title: 'PineCoder.in - Professional Trading Strategy Automation Services',
+    title: 'Aarohan Enterprises - Professional Trading Strategy Automation Services',
     description: "Transform your trading ideas into automated strategies. India's premier automated algorithmic trading development company.",
     images: [siteConfig.ogImage],
     siteName: siteConfig.name,
@@ -31,7 +47,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PineCoder.in - Professional Trading Strategy Automation Services',
+    title: 'Aarohan Enterprises - Professional Trading Strategy Automation Services',
     description: "Transform your trading ideas into automated strategies. India's premier automated algorithmic trading development company.",
     images: [siteConfig.ogImage],
   },
@@ -52,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${fraunces.variable} ${schibsted.variable} ${plexMono.variable}`}>
       <head>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
@@ -75,7 +91,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
       </head>
-      <body className={`${plusJakartaSans.className} bg-slate-950 text-gray-300 antialiased`}>
+      <body className="font-body bg-paper text-ink antialiased">
         {children}
       </body>
     </html>

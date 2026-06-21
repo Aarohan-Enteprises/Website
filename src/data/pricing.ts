@@ -16,8 +16,8 @@ export const pricingPlans: PricingPlan[] = [
     ],
     ctaText: 'Discuss Your Setup',
     ctaLink: '/contact?plan=broker-integration',
-    iconColor: 'text-blue-400',
-    borderColor: 'border-slate-800',
+    iconColor: 'text-pine',
+    borderColor: 'border-rule',
   },
   {
     name: 'Pine Script Development',
@@ -36,8 +36,8 @@ export const pricingPlans: PricingPlan[] = [
     ctaText: 'Start Your Project',
     ctaLink: '/contact?plan=pine-script',
     popular: true,
-    iconColor: 'text-blue-400',
-    borderColor: 'border-blue-500/50',
+    iconColor: 'text-pine',
+    borderColor: 'border-ink',
   },
   {
     name: 'Custom Solution',
@@ -54,8 +54,8 @@ export const pricingPlans: PricingPlan[] = [
     ],
     ctaText: 'Contact Us',
     ctaLink: '/contact?plan=custom',
-    iconColor: 'text-purple-400',
-    borderColor: 'border-slate-800',
+    iconColor: 'text-pine',
+    borderColor: 'border-rule',
   },
 ];
 
@@ -65,8 +65,8 @@ export const addOns: AddOn[] = [
     description: 'Multi-year walk-forward analysis & optimization',
     price: '₹3,000',
     priceLabel: '+',
-    iconColor: 'text-blue-500',
-    iconBgColor: 'bg-blue-600/10',
+    iconColor: 'text-pine',
+    iconBgColor: 'bg-pine-tint',
   },
   {
     name: 'ML Integration',

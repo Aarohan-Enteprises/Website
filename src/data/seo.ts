@@ -1,10 +1,10 @@
 export const siteConfig = {
-  name: 'PineCoder.in',
+  name: 'Aarohan Enterprises',
   url: 'https://pinecoder.in',
   ogImage: 'https://pinecoder.in/og-image.jpg',
-  description: 'PineCoder.in provides professional trading strategy automation services in India. Build, backtest, and deploy algo trading strategies with TradingView, Python, and advanced risk management.',
-  keywords: 'algo trading India, trading automation, strategy development, TradingView automation, Python trading, automated algorithmic trading services, PineCoder.in, trading bot development',
-  author: 'PineCoder FinTech',
+  description: 'Aarohan Enterprises provides professional trading strategy automation services in India. Build, backtest, and deploy algo trading strategies with TradingView, Python, and advanced risk management.',
+  keywords: 'algo trading India, trading automation, strategy development, TradingView automation, Python trading, automated algorithmic trading services, Aarohan Enterprises, pinecoder.in, trading bot development',
+  author: 'Aarohan Enterprises',
   phone: '+91-7499462967',
   email: 'contact@pinecoder.in',
   whatsapp: 'https://wa.me/917499462967',
@@ -15,7 +15,7 @@ export const siteConfig = {
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'PineCoder FinTech',
+  name: 'Aarohan Enterprises',
   legalName: 'Aarohan Enterprises',
   url: 'https://pinecoder.in',
   logo: 'https://pinecoder.in/logo-square-dark-theme.png',
@@ -39,7 +39,7 @@ export const organizationSchema = {
 export const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
-  name: 'PineCoder FinTech',
+  name: 'Aarohan Enterprises',
   image: 'https://pinecoder.in/og-image.jpg',
   url: 'https://pinecoder.in',
   telephone: '+91-7499462967',

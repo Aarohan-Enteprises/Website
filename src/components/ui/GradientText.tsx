@@ -1,13 +1,10 @@
+// Kept for backwards-compatible imports. The old blue→green gradient is gone;
+// emphasis is now an italic pine serif phrase in the editorial voice.
 interface GradientTextProps {
   children: React.ReactNode;
-  variant?: 'default' | 'purple';
   className?: string;
 }
 
-export function GradientText({ children, variant = 'default', className = '' }: GradientTextProps) {
-  return (
-    <span className={`${variant === 'purple' ? 'gradient-text-purple' : 'gradient-text'} ${className}`}>
-      {children}
-    </span>
-  );
+export function GradientText({ children, className = '' }: GradientTextProps) {
+  return <span className={`accent-ink ${className}`}>{children}</span>;
 }

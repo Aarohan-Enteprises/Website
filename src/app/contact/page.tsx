@@ -4,14 +4,13 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { MainLayout } from '@/components/layouts';
-import { GridBackground, FAQAccordion } from '@/components/ui';
+import { FAQAccordion } from '@/components/ui';
 import { WhatsAppIcon } from '@/components/ui/BrandIcons';
 import { contactFAQs } from '@/data/faq';
 import { sendToTelegram, formatContactMessage } from '@/lib/telegram';
 import { isValidPhone } from '@/lib/utils';
 import {
-  Send, ArrowRight, Phone, Mail, MapPin, Zap,
-  Shield, PhoneOff, Clock, Check, Loader2,
+  ArrowRight, Phone, Mail, MapPin, Check, Loader2, Shield, PhoneOff, Clock,
 } from 'lucide-react';
 
 function ContactContent() {
@@ -60,195 +59,136 @@ function ContactContent() {
   return (
     <MainLayout simpleFooter>
       {/* Hero */}
-      <section className="relative pt-12 pb-8">
-        <GridBackground opacity="opacity-10" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Let&apos;s Build Your <span className="gradient-text">Trading Edge</span>
-            </h1>
-            <p className="text-lg text-gray-400">
-              Free consultation. No obligations. We&apos;ll help transform your ideas into automated strategies.
-            </p>
-          </div>
+      <section className="border-b border-ink">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16 max-w-3xl">
+          <p className="eyebrow mb-4">Get in touch</p>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-ink">
+            Let&apos;s build your <span className="accent-ink">trading edge.</span>
+          </h1>
+          <p className="mt-5 text-lg text-ink-soft">
+            Free consultation, no obligations. Tell us the idea and we&apos;ll tell you
+            how to automate it.
+          </p>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
-            {/* Form */}
-            <div className="lg:col-span-3">
-              <div className="bg-gradient-to-br from-slate-900 to-slate-900/50 rounded-2xl p-6 md:p-8 border border-slate-800">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center">
-                    <Send size={18} className="text-blue-400" />
-                  </div>
-                  <div>
-                    <h2 className="text-xl font-bold text-white">Send a Message</h2>
-                    <p className="text-gray-500 text-sm">We&apos;ll respond within 2-4 hours</p>
-                  </div>
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div className="grid lg:grid-cols-5 gap-px bg-rule border border-ink max-w-6xl">
+          {/* Form */}
+          <div className="lg:col-span-3 bg-surface p-6 md:p-10">
+            <p className="eyebrow mb-2">Send a message</p>
+            <h2 className="font-display text-2xl text-ink mb-1">We reply within 2–4 hours</h2>
+            <hr className="rule my-6" />
+
+            {!success ? (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Field label="Name *">
+                    <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="field" placeholder="Your name" />
+                  </Field>
+                  <Field label="Email *">
+                    <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="field" placeholder="you@example.com" />
+                  </Field>
                 </div>
 
-                {!success ? (
-                  <form onSubmit={handleSubmit} className="space-y-5">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Name *</label>
-                        <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-gray-500 focus:border-blue-500 focus:bg-slate-800 transition-all" placeholder="Your name" />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Email *</label>
-                        <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-gray-500 focus:border-blue-500 focus:bg-slate-800 transition-all" placeholder="you@example.com" />
-                      </div>
-                    </div>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <Field label="Phone *">
+                    <input type="tel" required maxLength={10} value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/[^0-9]/g, '').slice(0, 10) })} className="field" placeholder="10-digit number" />
+                  </Field>
+                  <Field label="Service *">
+                    <select required value={formData.service} onChange={(e) => setFormData({ ...formData, service: e.target.value })} className="field">
+                      <option value="">Select service</option>
+                      <option value="Strategy Development">Strategy Development</option>
+                      <option value="Trading Automation">Trading Automation</option>
+                      <option value="Backtesting">Backtesting Services</option>
+                      <option value="Custom Indicators">Custom Indicators</option>
+                      <option value="Consultation">Consultation</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </Field>
+                </div>
 
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Phone *</label>
-                        <input type="tel" required maxLength={10} value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value.replace(/[^0-9]/g, '').slice(0, 10) })} className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-gray-500 focus:border-blue-500 focus:bg-slate-800 transition-all" placeholder="10-digit number" />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-400 mb-2">Service *</label>
-                        <select required value={formData.service} onChange={(e) => setFormData({ ...formData, service: e.target.value })} className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white focus:border-blue-500 focus:bg-slate-800 transition-all">
-                          <option value="">Select service</option>
-                          <option value="Strategy Development">Strategy Development</option>
-                          <option value="Trading Automation">Trading Automation</option>
-                          <option value="Backtesting">Backtesting Services</option>
-                          <option value="Custom Indicators">Custom Indicators</option>
-                          <option value="Consultation">Consultation</option>
-                          <option value="Other">Other</option>
-                        </select>
-                      </div>
-                    </div>
+                <Field label="Interested plan">
+                  <select value={formData.plan} onChange={(e) => setFormData({ ...formData, plan: e.target.value })} className="field">
+                    <option value="">Not sure yet</option>
+                    <option value="Broker Integration">Broker Integration — ₹5,999+</option>
+                    <option value="Pine Script Development">Pine Script Development — ₹9,999+</option>
+                    <option value="Custom Solution">Custom Solution</option>
+                  </select>
+                </Field>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-400 mb-2">Interested Plan</label>
-                      <select value={formData.plan} onChange={(e) => setFormData({ ...formData, plan: e.target.value })} className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white focus:border-blue-500 focus:bg-slate-800 transition-all">
-                        <option value="">Not sure yet</option>
-                        <option value="Broker Integration">Broker Integration - ₹5,999+</option>
-                        <option value="Pine Script Development">Pine Script Development - ₹9,999+</option>
-                        <option value="Custom Solution">Custom Solution</option>
-                      </select>
-                    </div>
+                <Field label="Project details (optional)">
+                  <textarea rows={4} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="field resize-none" placeholder="Describe your trading strategy or requirements..." />
+                </Field>
 
-                    <div>
-                      <label className="block text-sm font-medium text-gray-400 mb-2">Project Details <span className="text-gray-600">(Optional)</span></label>
-                      <textarea rows={4} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full px-4 py-3 bg-slate-800/50 border border-slate-700 rounded-xl text-white placeholder-gray-500 focus:border-blue-500 focus:bg-slate-800 transition-all resize-none" placeholder="Describe your trading strategy or requirements..." />
-                    </div>
+                <label className="flex items-start gap-3 text-sm text-ink-soft">
+                  <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} required className="w-4 h-4 mt-0.5 accent-pine" />
+                  <span>
+                    I agree to the <Link href="/terms-of-service" className="link-underline">Terms</Link> and <Link href="/privacy-policy" className="link-underline">Privacy Policy</Link>
+                  </span>
+                </label>
 
-                    <div className="flex items-start gap-3">
-                      <input type="checkbox" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} required className="w-4 h-4 mt-1 text-blue-600 bg-slate-800 border-slate-700 rounded focus:ring-blue-500" />
-                      <label className="text-sm text-gray-400">
-                        I agree to the <Link href="/terms-of-service" className="text-blue-400 hover:text-blue-300">Terms</Link> and <Link href="/privacy-policy" className="text-blue-400 hover:text-blue-300">Privacy Policy</Link>
-                      </label>
-                    </div>
+                <button type="submit" disabled={submitting} className="btn-primary w-full disabled:opacity-50">
+                  {submitting ? <><Loader2 size={16} className="animate-spin" /> Sending…</> : <>Send message <ArrowRight size={15} /></>}
+                </button>
 
-                    <button type="submit" disabled={submitting} className="w-full bg-blue-600 text-white py-3.5 rounded-xl font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-50">
-                      {submitting ? <><Loader2 size={18} className="animate-spin" /> Sending...</> : <>Send Message <ArrowRight size={16} /></>}
-                    </button>
-
-                    <div className="flex items-center justify-center gap-4 pt-2 text-xs text-gray-500">
-                      <span className="flex items-center gap-1"><Shield size={12} className="text-green-500" /> Secure</span>
-                      <span className="flex items-center gap-1"><PhoneOff size={12} className="text-green-500" /> No spam calls</span>
-                      <span className="flex items-center gap-1"><Clock size={12} className="text-green-500" /> Quick response</span>
-                    </div>
-                  </form>
-                ) : (
-                  <div className="text-center py-12">
-                    <div className="w-16 h-16 bg-green-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Check size={28} className="text-green-500" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white mb-2">Message Sent!</h3>
-                    <p className="text-gray-400 mb-6">We&apos;ll get back to you within 2-4 hours.</p>
-                    <button onClick={resetForm} className="text-blue-400 hover:text-blue-300 text-sm">
-                      Send another message <ArrowRight size={12} className="inline ml-1" />
-                    </button>
-                  </div>
-                )}
+                <div className="flex flex-wrap items-center gap-4 pt-1 font-mono text-[0.7rem] uppercase tracking-wider text-ink-faint">
+                  <span className="flex items-center gap-1.5"><Shield size={12} className="text-pine" /> Secure</span>
+                  <span className="flex items-center gap-1.5"><PhoneOff size={12} className="text-pine" /> No spam calls</span>
+                  <span className="flex items-center gap-1.5"><Clock size={12} className="text-pine" /> Quick response</span>
+                </div>
+              </form>
+            ) : (
+              <div className="text-center py-16">
+                <div className="w-14 h-14 border border-pine flex items-center justify-center mx-auto mb-5">
+                  <Check size={26} className="text-pine" />
+                </div>
+                <h3 className="font-display text-2xl text-ink mb-2">Message sent</h3>
+                <p className="text-ink-soft mb-6">We&apos;ll get back to you within 2–4 hours.</p>
+                <button onClick={resetForm} className="link-underline font-mono text-sm uppercase tracking-wider">
+                  Send another message
+                </button>
               </div>
-            </div>
+            )}
+          </div>
 
-            {/* Sidebar */}
-            <div className="lg:col-span-2 space-y-4">
-              <a href="https://wa.me/917499462967?text=Hi%2C%20I%27m%20interested%20in%20algo%20trading%20services" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-green-600/10 border border-green-600/30 rounded-xl p-4 hover:bg-green-600/20 transition-all group">
-                <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <WhatsAppIcon size={22} className="text-white" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-white font-semibold">WhatsApp</div>
-                  <div className="text-sm text-gray-400">Fastest response</div>
-                </div>
-                <ArrowRight size={16} className="text-green-500 group-hover:translate-x-1 transition-transform" />
-              </a>
+          {/* Sidebar */}
+          <div className="lg:col-span-2 bg-band p-6 md:p-8 space-y-px">
+            <ContactRow href="https://wa.me/917499462967?text=Hi%2C%20I%27m%20interested%20in%20algo%20trading%20services" icon={<WhatsAppIcon size={18} />} title="WhatsApp" sub="Fastest response" external />
+            <ContactRow href="tel:+917499462967" icon={<Phone size={18} />} title="+91 74994 62967" sub="Mon–Sat, 9 AM – 7 PM" mono />
+            <ContactRow href="mailto:contact@pinecoder.in" icon={<Mail size={18} />} title="contact@pinecoder.in" sub="24-hour response" />
 
-              <a href="tel:+917499462967" className="flex items-center gap-4 bg-blue-600/10 border border-blue-600/30 rounded-xl p-4 hover:bg-blue-600/20 transition-all group">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Phone size={22} className="text-white" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-white font-semibold">+91 74994 62967</div>
-                  <div className="text-sm text-gray-400">Mon-Sat, 9 AM - 7 PM</div>
-                </div>
-                <ArrowRight size={16} className="text-blue-500 group-hover:translate-x-1 transition-transform" />
-              </a>
-
-              <a href="mailto:contact@pinecoder.in" className="flex items-center gap-4 bg-purple-600/10 border border-purple-600/30 rounded-xl p-4 hover:bg-purple-600/20 transition-all group">
-                <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Mail size={22} className="text-white" />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="text-white font-semibold truncate">contact@pinecoder.in</div>
-                  <div className="text-sm text-gray-400">24hr response</div>
-                </div>
-                <ArrowRight size={16} className="text-purple-500 group-hover:translate-x-1 transition-transform" />
-              </a>
-
-              <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-4">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center">
-                    <MapPin size={18} className="text-blue-400" />
-                  </div>
-                  <div>
-                    <div className="text-white font-semibold">Location</div>
-                    <div className="text-sm text-gray-500">Nagpur, Maharashtra, India</div>
-                  </div>
-                </div>
-                <a href="https://maps.app.goo.gl/tMsifPuT8L1NBg9n9" target="_blank" rel="noopener noreferrer" className="block rounded-lg overflow-hidden">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.5!2d79.1240479!3d21.1520973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c7974217c5b1%3A0xfaebf266b7db24a3!2sAarohan%20Enterprises!5e0!3m2!1sen!2sin!4v1"
-                    width="100%"
-                    height="140"
-                    style={{ border: 0, pointerEvents: 'none' }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="rounded-lg"
-                  />
-                </a>
-              </div>
-
-              <div className="bg-gradient-to-br from-blue-600/10 to-slate-900 border border-blue-600/20 rounded-xl p-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center">
-                    <Zap size={18} className="text-blue-400" />
-                  </div>
-                  <div>
-                    <div className="text-white font-semibold">Quick Response</div>
-                    <div className="text-sm text-gray-400">Average reply time: 2-4 hours</div>
-                  </div>
+            <div className="bg-surface border border-rule p-4 !mt-4">
+              <div className="flex items-center gap-3 mb-3">
+                <MapPin size={18} className="text-pine" />
+                <div>
+                  <div className="font-display text-ink">Nagpur, Maharashtra</div>
+                  <div className="font-mono text-xs text-ink-faint">India</div>
                 </div>
               </div>
+              <a href="https://maps.app.goo.gl/tMsifPuT8L1NBg9n9" target="_blank" rel="noopener noreferrer" className="block">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3721.5!2d79.1240479!3d21.1520973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c7974217c5b1%3A0xfaebf266b7db24a3!2sAarohan%20Enterprises!5e0!3m2!1sen!2sin!4v1"
+                  width="100%"
+                  height="140"
+                  style={{ border: 0, pointerEvents: 'none', filter: 'grayscale(0.4) sepia(0.15)' }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-16 bg-slate-900/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <h2 className="text-2xl font-bold text-white text-center mb-10">Common Questions</h2>
+      <section id="faq" className="border-t border-ink bg-band">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-3xl">
+          <header className="mb-10">
+            <p className="eyebrow mb-3">Questions</p>
+            <h2 className="font-display text-3xl md:text-4xl font-medium text-ink">Common questions</h2>
+          </header>
           <FAQAccordion items={contactFAQs} />
         </div>
       </section>
@@ -256,9 +196,37 @@ function ContactContent() {
   );
 }
 
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <label className="block">
+      <span className="eyebrow text-ink-soft block mb-2">{label}</span>
+      {children}
+    </label>
+  );
+}
+
+function ContactRow({ href, icon, title, sub, external, mono }: {
+  href: string; icon: React.ReactNode; title: string; sub: string; external?: boolean; mono?: boolean;
+}) {
+  return (
+    <a
+      href={href}
+      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      className="group flex items-center gap-4 bg-surface border border-rule p-4 hover:border-ink transition-colors"
+    >
+      <span className="text-pine flex-shrink-0">{icon}</span>
+      <span className="flex-1 min-w-0">
+        <span className={`block text-ink truncate ${mono ? 'font-mono text-sm' : 'font-display'}`}>{title}</span>
+        <span className="block font-mono text-[0.7rem] uppercase tracking-wider text-ink-faint">{sub}</span>
+      </span>
+      <ArrowRight size={15} className="text-ink-faint group-hover:text-pine group-hover:translate-x-1 transition-all" />
+    </a>
+  );
+}
+
 export default function ContactPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-slate-950" />}>
+    <Suspense fallback={<div className="min-h-screen bg-paper" />}>
       <ContactContent />
     </Suspense>
   );

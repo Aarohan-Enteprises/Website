@@ -57,8 +57,8 @@ export function getReadinessLevel(percentage: number): ReadinessLevel {
   if (percentage >= 80) {
     return {
       level: 'Expert Ready',
-      color: 'text-green-400',
-      bgGradient: 'bg-gradient-to-r from-green-600 to-emerald-600',
+      color: 'text-pine',
+      bgGradient: 'bg-pine',
       icon: 'Rocket',
       recommendations: [
         "You're well-prepared for advanced algo trading strategies",
@@ -70,8 +70,8 @@ export function getReadinessLevel(percentage: number): ReadinessLevel {
   } else if (percentage >= 60) {
     return {
       level: 'Well Prepared',
-      color: 'text-blue-400',
-      bgGradient: 'bg-gradient-to-r from-blue-600 to-cyan-600',
+      color: 'text-pine',
+      bgGradient: 'bg-pine',
       icon: 'TrendingUp',
       recommendations: [
         'You have a solid foundation for algo trading',
@@ -83,8 +83,8 @@ export function getReadinessLevel(percentage: number): ReadinessLevel {
   } else if (percentage >= 40) {
     return {
       level: 'Getting There',
-      color: 'text-yellow-400',
-      bgGradient: 'bg-gradient-to-r from-yellow-600 to-orange-600',
+      color: 'text-ink',
+      bgGradient: 'bg-ink',
       icon: 'Sprout',
       recommendations: [
         'Focus on documenting your trading rules clearly',
@@ -96,8 +96,8 @@ export function getReadinessLevel(percentage: number): ReadinessLevel {
   } else {
     return {
       level: 'Just Starting',
-      color: 'text-purple-400',
-      bgGradient: 'bg-gradient-to-r from-purple-600 to-pink-600',
+      color: 'text-ink',
+      bgGradient: 'bg-ink',
       icon: 'GraduationCap',
       recommendations: [
         'Begin with learning trading fundamentals',

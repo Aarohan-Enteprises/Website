@@ -7,7 +7,7 @@ export function BackToTop() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setVisible(window.scrollY > 300);
+    const handleScroll = () => setVisible(window.scrollY > 400);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -15,12 +15,12 @@ export function BackToTop() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      className={`fixed bottom-8 right-8 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center transition-all duration-300 hover:bg-blue-700 hover:-translate-y-1 hover:shadow-lg hover:shadow-blue-600/30 z-50 ${
+      className={`fixed bottom-8 right-8 w-11 h-11 bg-ink text-paper flex items-center justify-center transition-all duration-300 hover:bg-pine z-50 ${
         visible ? 'opacity-100 visible' : 'opacity-0 invisible'
       }`}
       aria-label="Back to top"
     >
-      <ArrowUp size={20} />
+      <ArrowUp size={18} />
     </button>
   );
 }

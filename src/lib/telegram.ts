@@ -48,7 +48,7 @@ export function formatContactMessage(data: {
 ${data.message || 'No message'}
 
 ---
-_Sent from PineCoder.in Contact Form_
+_Sent from the Aarohan Enterprises website_
   `.trim();
 }
 

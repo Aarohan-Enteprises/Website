@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 import type { FAQItem } from '@/data/faq';
 
 interface FAQAccordionProps {
@@ -9,40 +9,45 @@ interface FAQAccordionProps {
 }
 
 export function FAQAccordion({ items }: FAQAccordionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <div className="space-y-3">
-      {items.map((item, index) => (
-        <div
-          key={index}
-          className="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden"
-        >
-          <button
-            onClick={() => toggle(index)}
-            className="w-full text-left p-5 flex justify-between items-center hover:bg-slate-800/50 transition-colors"
-          >
-            <span className="font-medium text-white">{item.question}</span>
-            <ChevronDown
-              size={16}
-              className={`text-gray-500 transition-transform duration-300 flex-shrink-0 ml-4 ${
-                openIndex === index ? 'rotate-180' : ''
+    <div className="border-t border-rule">
+      {items.map((item, index) => {
+        const open = openIndex === index;
+        return (
+          <div key={index} className="border-b border-rule">
+            <button
+              onClick={() => toggle(index)}
+              className="w-full text-left py-5 flex justify-between items-start gap-4 group"
+              aria-expanded={open}
+            >
+              <span className="flex items-baseline gap-3">
+                <span className="font-mono text-xs text-ink-faint pt-0.5">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className="font-display text-lg text-ink group-hover:text-pine transition-colors">
+                  {item.question}
+                </span>
+              </span>
+              <span className="text-pine flex-shrink-0 mt-1">
+                {open ? <Minus size={18} /> : <Plus size={18} />}
+              </span>
+            </button>
+            <div
+              className={`overflow-hidden transition-all duration-300 ${
+                open ? 'max-h-60' : 'max-h-0'
               }`}
-            />
-          </button>
-          <div
-            className={`overflow-hidden transition-all duration-300 ${
-              openIndex === index ? 'max-h-40' : 'max-h-0'
-            }`}
-          >
-            <div className="px-5 pb-5 text-gray-400 text-sm">{item.answer}</div>
+            >
+              <p className="pb-5 pl-8 pr-8 text-ink-soft leading-relaxed">{item.answer}</p>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }

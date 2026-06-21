@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { MainLayout } from '@/components/layouts';
-import { GridBackground, FAQAccordion } from '@/components/ui';
+import { FAQAccordion } from '@/components/ui';
 import { WhatsAppIcon } from '@/components/ui/BrandIcons';
 import { pricingPlans, comparisonRows } from '@/data/pricing';
 import { pricingFAQs } from '@/data/faq';
-import { Check, Minus, ArrowRight, Star, Shield, RotateCcw, Headset, Link2, Code2, Settings, Info } from 'lucide-react';
+import { Check, Minus, ArrowRight, Link2, Code2, Settings, Info, Shield, RotateCcw, Headset } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Pricing - Trading Automation & Pine Script Development',
-  description: 'Transparent pricing for Pine Script development and broker integration services. Starting from ₹4,500. Actual quotation provided after understanding scope of work.',
+  description: 'Transparent pricing for Pine Script development and broker integration services. Starting from ₹5,999. Actual quotation provided after understanding scope of work.',
   alternates: { canonical: 'https://pinecoder.in/pricing/' },
 };
 
@@ -23,147 +23,118 @@ export default function PricingPage() {
   return (
     <MainLayout simpleFooter>
       {/* Hero */}
-      <section className="relative pt-12 pb-8">
-        <GridBackground opacity="opacity-10" />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Simple, Transparent <span className="gradient-text">Pricing</span>
-            </h1>
-            <p className="text-lg text-gray-400">
-              Starting prices for our services. Actual quotation provided after understanding your scope of work.
-            </p>
-          </div>
+      <section className="border-b border-ink">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16 max-w-3xl">
+          <p className="eyebrow mb-4">Rate card</p>
+          <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium text-ink">
+            Honest, <span className="accent-ink">scoped</span> pricing.
+          </h1>
+          <p className="mt-5 text-lg text-ink-soft">
+            Starting rates for each service. We send an exact quote once we understand
+            your scope — no surprises later.
+          </p>
         </div>
       </section>
 
-      {/* Pricing Cards */}
-      <section className="py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {pricingPlans.map((plan) => {
-              const Icon = planIcons[plan.name] || Code2;
-              return (
-                <div
-                  key={plan.name}
-                  className={`relative rounded-2xl overflow-hidden transition-all group ${
+      {/* Plans */}
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid lg:grid-cols-3 gap-px bg-rule border border-ink">
+          {pricingPlans.map((plan) => {
+            const Icon = planIcons[plan.name] || Code2;
+            return (
+              <div
+                key={plan.name}
+                className={`relative flex flex-col p-8 ${plan.popular ? 'bg-pine-tint' : 'bg-surface'}`}
+              >
+                {plan.popular && (
+                  <span className="absolute top-0 right-0 bg-pine text-paper font-mono text-[0.65rem] uppercase tracking-widest px-3 py-1">
+                    Most chosen
+                  </span>
+                )}
+                <div className="flex items-center justify-between mb-6">
+                  <span className="eyebrow">{plan.subtitle}</span>
+                  <Icon size={22} className="text-pine" strokeWidth={1.5} />
+                </div>
+
+                <h3 className="font-display text-2xl text-ink mb-4">{plan.name}</h3>
+
+                <div className="mb-6 pb-6 border-b border-rule">
+                  <div className="flex items-baseline gap-2">
+                    <span className="font-mono text-4xl text-ink">{plan.price}</span>
+                    {plan.priceLabel && (
+                      <span className="font-mono text-xs text-ink-faint uppercase tracking-wider">{plan.priceLabel}</span>
+                    )}
+                  </div>
+                  <p className="mt-2 text-sm text-ink-soft">
+                    {plan.price === 'Custom' ? 'Tailored to your requirements' : 'Final price based on scope'}
+                  </p>
+                </div>
+
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3 text-sm text-ink-soft">
+                      <Check size={15} className="text-pine flex-shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  href={plan.ctaLink}
+                  className={`mt-auto text-center font-mono text-sm uppercase tracking-wider py-3.5 transition-colors ${
                     plan.popular
-                      ? 'bg-gradient-to-b from-blue-600/10 to-slate-900 border-2 border-blue-500/50 lg:scale-105 shadow-xl shadow-blue-500/10'
-                      : 'bg-gradient-to-b from-slate-900 to-slate-900/50 border border-slate-800 hover:border-slate-700'
+                      ? 'bg-pine text-paper hover:bg-pine-dark'
+                      : 'border border-ink text-ink hover:bg-ink hover:text-paper'
                   }`}
                 >
-                  {plan.popular && (
-                    <div className="bg-gradient-to-r from-blue-600 to-blue-500 text-white text-center py-2 text-sm font-semibold">
-                      <Star size={14} className="inline mr-1" /> MOST POPULAR
-                    </div>
-                  )}
-                  <div className="p-8">
-                    <div className="flex items-center gap-3 mb-6">
-                      <div className={`w-12 h-12 ${plan.popular ? 'bg-blue-600/20' : plan.name === 'Custom Solution' ? 'bg-purple-600/20' : 'bg-slate-800'} rounded-xl flex items-center justify-center`}>
-                        <Icon size={22} className={plan.iconColor} />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-white">{plan.name}</h3>
-                        <p className={`text-sm ${plan.popular ? 'text-gray-400' : 'text-gray-500'}`}>{plan.subtitle}</p>
-                      </div>
-                    </div>
+                  {plan.ctaText}
+                </Link>
+              </div>
+            );
+          })}
+        </div>
 
-                    <div className="mb-6">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-4xl font-bold text-white">{plan.price}</span>
-                        {plan.priceLabel && <span className={`text-sm ${plan.popular ? 'text-gray-400' : 'text-gray-500'}`}>{plan.priceLabel}</span>}
-                      </div>
-                      <p className={`text-sm mt-1 ${plan.popular ? 'text-gray-400' : 'text-gray-500'}`}>
-                        {plan.price === 'Custom' ? 'Tailored to your requirements' : 'Final price based on scope'}
-                      </p>
-                    </div>
+        {/* Note */}
+        <div className="max-w-3xl mt-8 flex items-start gap-3 border-l-2 border-pine pl-4">
+          <Info size={16} className="text-pine flex-shrink-0 mt-1" />
+          <p className="text-sm text-ink-soft">
+            Prices shown are starting estimates. Every project is unique — we provide an
+            accurate quotation after understanding your specific requirements and scope of work.
+          </p>
+        </div>
 
-                    <ul className="space-y-3 mb-8">
-                      {plan.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-3 text-sm">
-                          <Check size={16} className={plan.popular ? 'text-green-400' : 'text-green-500'} />
-                          <span className={plan.popular ? 'text-gray-200' : 'text-gray-300'}>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <Link
-                      href={plan.ctaLink}
-                      className={`block w-full text-center py-3.5 rounded-xl font-semibold transition-colors ${
-                        plan.popular
-                          ? 'bg-blue-600 text-white hover:bg-blue-700'
-                          : 'bg-slate-800 text-white hover:bg-slate-700'
-                      }`}
-                    >
-                      {plan.ctaText}
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Disclaimer */}
-          <div className="max-w-2xl mx-auto mt-8">
-            <div className="flex items-start gap-3 bg-blue-600/5 border border-blue-600/20 rounded-xl p-4">
-              <Info size={18} className="text-blue-400 flex-shrink-0 mt-0.5" />
-              <p className="text-sm text-gray-400">
-                Prices shown are starting estimates. Every project is unique — we provide an accurate quotation after understanding your specific requirements and scope of work.
-              </p>
-            </div>
-          </div>
-
-          {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center gap-8 mt-10 text-sm text-gray-500">
-            <div className="flex items-center gap-2">
-              <Shield size={16} className="text-green-500" />
-              <span>Secure Payments</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <RotateCcw size={16} className="text-green-500" />
-              <span>Milestone-based Payments</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Headset size={16} className="text-green-500" />
-              <span>Dedicated Support</span>
-            </div>
-          </div>
+        {/* Assurances */}
+        <div className="flex flex-wrap gap-x-10 gap-y-3 mt-10 font-mono text-xs uppercase tracking-wider text-ink-soft">
+          <span className="flex items-center gap-2"><Shield size={14} className="text-pine" /> Secure payments</span>
+          <span className="flex items-center gap-2"><RotateCcw size={14} className="text-pine" /> Milestone-based</span>
+          <span className="flex items-center gap-2"><Headset size={14} className="text-pine" /> Dedicated support</span>
         </div>
       </section>
 
-      {/* Comparison Table */}
-      <section className="py-16 bg-slate-900/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-white text-center mb-10">Compare Services</h2>
-          <div className="max-w-4xl mx-auto overflow-x-auto">
-            <table className="w-full">
+      {/* Comparison */}
+      <section className="border-y border-ink bg-band">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <header className="mb-10">
+            <p className="eyebrow mb-3">Side by side</p>
+            <h2 className="font-display text-3xl md:text-4xl font-medium text-ink">Compare services</h2>
+          </header>
+          <div className="max-w-4xl overflow-x-auto">
+            <table className="w-full text-sm border-t border-ink">
               <thead>
-                <tr className="border-b border-slate-800">
-                  <th className="py-4 px-4 text-left text-gray-400 font-medium text-sm">Feature</th>
-                  <th className="py-4 px-4 text-center text-gray-400 font-medium text-sm w-32">Broker Integration</th>
-                  <th className="py-4 px-4 text-center text-blue-400 font-medium text-sm w-32 bg-blue-600/5">Pine Script</th>
-                  <th className="py-4 px-4 text-center text-gray-400 font-medium text-sm w-32">Custom</th>
+                <tr className="border-b border-ink">
+                  <th className="py-4 pr-4 text-left eyebrow text-ink-soft">Feature</th>
+                  <th className="py-4 px-4 text-center eyebrow text-ink-soft w-32">Broker</th>
+                  <th className="py-4 px-4 text-center eyebrow text-pine w-32">Pine Script</th>
+                  <th className="py-4 px-4 text-center eyebrow text-ink-soft w-32">Custom</th>
                 </tr>
               </thead>
-              <tbody className="text-sm">
-                {comparisonRows.map((row, i) => (
-                  <tr key={row.feature} className={i < comparisonRows.length - 1 ? 'border-b border-slate-800/50' : ''}>
-                    <td className="py-4 px-4 text-gray-300">{row.feature}</td>
-                    <td className="py-4 px-4 text-center text-gray-400">
-                      {typeof row.starter === 'boolean' ? (
-                        row.starter ? <Check size={16} className="text-green-500 mx-auto" /> : <Minus size={16} className="text-gray-600 mx-auto" />
-                      ) : row.starter}
-                    </td>
-                    <td className="py-4 px-4 text-center bg-blue-600/5">
-                      {typeof row.professional === 'boolean' ? (
-                        row.professional ? <Check size={16} className="text-green-500 mx-auto" /> : <Minus size={16} className="text-gray-600 mx-auto" />
-                      ) : <span className="text-white">{row.professional}</span>}
-                    </td>
-                    <td className="py-4 px-4 text-center text-gray-400">
-                      {typeof row.enterprise === 'boolean' ? (
-                        row.enterprise ? <Check size={16} className="text-green-500 mx-auto" /> : <Minus size={16} className="text-gray-600 mx-auto" />
-                      ) : row.enterprise}
-                    </td>
+              <tbody>
+                {comparisonRows.map((row) => (
+                  <tr key={row.feature} className="border-b border-rule">
+                    <td className="py-4 pr-4 text-ink">{row.feature}</td>
+                    <Cell value={row.starter} />
+                    <Cell value={row.professional} highlight />
+                    <Cell value={row.enterprise} />
                   </tr>
                 ))}
               </tbody>
@@ -173,30 +144,45 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 bg-slate-900/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-          <h2 className="text-2xl font-bold text-white text-center mb-10">Common Questions</h2>
-          <FAQAccordion items={pricingFAQs} />
-        </div>
+      <section className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 max-w-3xl">
+        <header className="mb-10">
+          <p className="eyebrow mb-3">Questions</p>
+          <h2 className="font-display text-3xl md:text-4xl font-medium text-ink">Before you ask</h2>
+        </header>
+        <FAQAccordion items={pricingFAQs} />
       </section>
 
       {/* CTA */}
-      <section className="py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl font-bold text-white mb-3">Ready to automate your trading?</h2>
-            <p className="text-gray-400 mb-6">Get a free consultation and discuss your requirements</p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/contact" className="inline-flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                Start Your Project <ArrowRight size={16} />
-              </Link>
-              <a href="https://wa.me/917499462967" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors">
-                <WhatsAppIcon size={18} /> WhatsApp
-              </a>
-            </div>
+      <section className="border-t border-ink bg-ink text-paper">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+          <h2 className="font-display text-3xl md:text-4xl font-medium text-paper">Ready to scope your build?</h2>
+          <p className="mt-4 text-paper/70">Free consultation. We&apos;ll map out cost and timeline together.</p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+            <Link href="/contact" className="inline-flex items-center justify-center gap-2 bg-paper text-ink font-mono text-sm uppercase tracking-wider px-7 py-4 hover:bg-pine hover:text-paper transition-colors">
+              Start your project <ArrowRight size={16} />
+            </Link>
+            <a href="https://wa.me/917499462967" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 border border-paper/40 text-paper font-mono text-sm uppercase tracking-wider px-7 py-4 hover:border-paper transition-colors">
+              <WhatsAppIcon size={16} /> WhatsApp
+            </a>
           </div>
         </div>
       </section>
     </MainLayout>
+  );
+}
+
+function Cell({ value, highlight }: { value: string | boolean; highlight?: boolean }) {
+  return (
+    <td className={`py-4 px-4 text-center ${highlight ? 'bg-pine-tint/60' : ''}`}>
+      {typeof value === 'boolean' ? (
+        value ? (
+          <Check size={16} className="text-pine mx-auto" />
+        ) : (
+          <Minus size={16} className="text-ink-faint mx-auto" />
+        )
+      ) : (
+        <span className={`font-mono text-xs ${highlight ? 'text-ink' : 'text-ink-soft'}`}>{value}</span>
+      )}
+    </td>
   );
 }

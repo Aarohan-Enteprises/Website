@@ -9,159 +9,241 @@
 
   body {
     overflow-x: hidden;
+    background-color: theme('colors.paper');
+    color: theme('colors.ink');
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: theme('fontFamily.display');
+    color: theme('colors.ink');
+    letter-spacing: -0.01em;
+  }
+
+  /* Tabular, lining figures everywhere numbers carry meaning. */
+  .font-mono,
+  table,
+  time {
+    font-variant-numeric: tabular-nums lining-nums;
   }
 
   ::selection {
-    background-color: rgba(59, 130, 246, 0.3);
-    color: white;
+    background-color: theme('colors.pine');
+    color: theme('colors.paper');
   }
 
   :focus-visible {
-    outline: 2px solid #3b82f6;
+    outline: 2px solid theme('colors.pine');
     outline-offset: 2px;
   }
 
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 12px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #1e293b;
+    background: theme('colors.band');
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #3b82f6;
-    border-radius: 5px;
+    background: theme('colors.rule-strong');
+    border: 3px solid theme('colors.band');
+    border-radius: 0;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #2563eb;
+    background: theme('colors.pine');
   }
 }
 
 @layer components {
-  .gradient-text {
-    background: linear-gradient(135deg, #3b82f6, #10b981);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  /* ── Editorial structural devices ───────────────────────────── */
+
+  /* Mono kicker / eyebrow label, set in small caps tracking. */
+  .eyebrow {
+    font-family: theme('fontFamily.mono');
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: theme('letterSpacing.eyebrow');
+    color: theme('colors.pine');
   }
 
-  .gradient-text-purple {
-    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  /* Hairline rule — the page's primary divider. */
+  .rule {
+    border: 0;
+    border-top: 1px solid theme('colors.rule');
   }
 
-  .grid-background {
-    background-image:
-      linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: grid-move 20s linear infinite;
+  .rule-ink {
+    border: 0;
+    border-top: 1.5px solid theme('colors.ink');
   }
 
-  .navbar-blur {
-    backdrop-filter: blur(10px);
-    background-color: rgba(15, 23, 42, 0.9);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  /* Accent on a phrase — replaces the old gradient text. */
+  .accent-ink {
+    font-style: italic;
+    color: theme('colors.pine');
   }
 
-  .feature-card {
-    transition: all 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  /* ── Ticker tape (the signature element) ────────────────────── */
+  .ticker-mask {
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
   }
 
-  .feature-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(59, 130, 246, 0.5);
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+  .ticker-track {
+    display: inline-flex;
+    white-space: nowrap;
   }
 
-  .pricing-card {
-    transition: all 0.3s ease;
+  /* One element holds two copies and slides left by exactly one copy width,
+     so the tape scrolls seamlessly and continuously. */
+  .ticker-marquee {
+    display: flex;
+    width: max-content;
+    animation: ticker-scroll 40s linear infinite;
   }
 
-  .pricing-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+  /* ── Cards / surfaces ───────────────────────────────────────── */
+  .card {
+    background-color: theme('colors.surface');
+    border: 1px solid theme('colors.rule');
+    transition: border-color 0.25s ease, transform 0.25s ease;
   }
 
-  .glow-blue {
-    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+  .card-hover:hover {
+    border-color: theme('colors.ink');
   }
 
-  .glow-green {
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+  /* ── Buttons ────────────────────────────────────────────────── */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: theme('colors.pine');
+    color: theme('colors.paper');
+    font-family: theme('fontFamily.mono');
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.95rem 1.6rem;
+    transition: background-color 0.2s ease;
   }
 
-  .glow-purple {
-    box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+  .btn-primary:hover {
+    background-color: theme('colors.pine-dark');
   }
 
-  .typewriter-cursor {
-    display: inline-block;
-    margin-left: 2px;
-    font-weight: 400;
-    animation: blink 0.7s infinite;
-    background: linear-gradient(135deg, #3b82f6, #10b981);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    color: theme('colors.ink');
+    font-family: theme('fontFamily.mono');
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.95rem 1.6rem;
+    border: 1px solid theme('colors.ink');
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
-  .typewriter-text {
-    display: inline-block;
-    min-width: 180px;
+  .btn-ghost:hover {
+    background-color: theme('colors.ink');
+    color: theme('colors.paper');
   }
 
-  .progress-bar {
-    height: 4px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 2px;
-    overflow: hidden;
+  /* Inline text link with the editorial underline reveal. */
+  .link-underline {
+    color: theme('colors.pine');
+    background-image: linear-gradient(theme('colors.pine'), theme('colors.pine'));
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    transition: background-size 0.25s ease;
   }
 
-  .progress-bar-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #3b82f6 0%, #10b981 100%);
-    transition: width 0.5s ease;
+  .link-underline:hover {
+    background-size: 0 1px;
   }
+
+  /* ── Form fields ────────────────────────────────────────────── */
+  .field {
+    width: 100%;
+    background-color: theme('colors.surface');
+    border: 1px solid theme('colors.rule-strong');
+    color: theme('colors.ink');
+    padding: 0.8rem 0.95rem;
+    font-family: theme('fontFamily.body');
+    transition: border-color 0.2s ease;
+  }
+
+  .field::placeholder {
+    color: theme('colors.ink-faint');
+  }
+
+  .field:focus {
+    outline: none;
+    border-color: theme('colors.pine');
+  }
+
+  /* ── Long-form legal / prose ────────────────────────────────── */
+  .editorial-prose {
+    color: theme('colors.ink-soft');
+    line-height: 1.75;
+  }
+
+  .editorial-prose p { margin-bottom: 1.1rem; }
+  .editorial-prose h2 {
+    color: theme('colors.ink');
+    font-size: 1.4rem;
+    margin: 2rem 0 0.75rem;
+  }
+  .editorial-prose a { color: theme('colors.pine'); text-decoration: underline; }
 }
 
 @layer utilities {
-  .text-shadow {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  }
-
-  .text-shadow-lg {
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  }
+  /* Market data semantics — only for real prices / P&L. */
+  .data-up { color: theme('colors.up'); }
+  .data-down { color: theme('colors.down'); }
 }
 
-/* Form focus */
-input:focus,
-textarea:focus,
-select:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+/* Defined here (not via Tailwind's animate-* utility) so the keyframes are
+   always emitted, even though the ticker uses a custom class. */
+@keyframes ticker-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 /* Print */
 @media print {
-  .no-print {
-    display: none !important;
-  }
-  body {
-    background: white;
-    color: black;
-  }
+  .no-print { display: none !important; }
+  body { background: white; color: black; }
 }
 
-/* Responsive Typography */
+/* Responsive display type */
 @media (max-width: 640px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
-  h3 { font-size: 1.25rem; }
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.65rem; }
+  h3 { font-size: 1.3rem; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .ticker-marquee { animation: none; }
 }

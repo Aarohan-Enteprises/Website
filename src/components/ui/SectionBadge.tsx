@@ -1,24 +1,20 @@
 import { type LucideIcon } from 'lucide-react';
 
 interface SectionBadgeProps {
-  icon: LucideIcon;
+  icon?: LucideIcon;
   text: string;
-  color?: string;
-  borderColor?: string;
-  bgColor?: string;
+  /** Optional running number for true sequences, e.g. "01". */
+  index?: string;
 }
 
-export function SectionBadge({
-  icon: Icon,
-  text,
-  color = 'text-blue-400',
-  borderColor = 'border-blue-600/20',
-  bgColor = 'bg-blue-600/10',
-}: SectionBadgeProps) {
+// Editorial eyebrow: a mono kicker, optionally prefixed by a section number,
+// sitting above a hairline. Replaces the old pill badge.
+export function SectionBadge({ icon: Icon, text, index }: SectionBadgeProps) {
   return (
-    <div className={`inline-flex items-center gap-2 ${bgColor} border ${borderColor} rounded-full px-4 py-1.5 text-sm ${color}`}>
-      <Icon size={14} />
+    <span className="eyebrow inline-flex items-center gap-2">
+      {index && <span className="text-ink-faint">{index}</span>}
+      {Icon && <Icon size={13} strokeWidth={2} />}
       <span>{text}</span>
-    </div>
+    </span>
   );
 }
