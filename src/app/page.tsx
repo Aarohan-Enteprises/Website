@@ -4,7 +4,7 @@ import { BackToTop, LiveTerminal } from '@/components/ui';
 import { WhatsAppIcon } from '@/components/ui/BrandIcons';
 import {
   ArrowRight, ArrowUpRight, Bot, Code2, Filter,
-  Bell, BarChart3, FileText, Check,
+  Bell, BarChart3, Users, FileText, Check,
 } from 'lucide-react';
 
 const services = [
@@ -50,6 +50,15 @@ const tools = [
     href: 'https://vbc.pinecoder.in',
     description: 'Real-time crypto volatility screener built on Bollinger Bands & ATR analysis.',
     features: ['Live WebSocket data', 'Multi-timeframe scans', 'Breakout & squeeze alerts'],
+  },
+  {
+    icon: Users,
+    name: 'GroupSync',
+    tag: 'Free scan · ₹50',
+    href: 'https://groupsync.pinecoder.in',
+    description:
+      "Chrome extension that exports any WhatsApp group's member list to CSV, Excel, or vCard.",
+    features: ['CSV, Excel & vCard', 'Unsaved numbers included', 'Nothing leaves your browser'],
   },
   {
     icon: FileText,
@@ -198,7 +207,7 @@ export default function HomePage() {
             </p>
           </header>
 
-          <div className="grid md:grid-cols-3 gap-px bg-rule border border-rule">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-px bg-rule border border-rule">
             {tools.map((t) => {
               const Icon = t.icon;
               return (
@@ -213,7 +222,7 @@ export default function HomePage() {
                     <Icon size={22} className="text-pine" strokeWidth={1.5} />
                     <ArrowUpRight size={18} className="text-ink-faint group-hover:text-pine transition-colors" />
                   </div>
-                  <div className="flex items-baseline justify-between gap-2 mb-2">
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-2 gap-y-1 mb-2">
                     <h3 className="font-display text-xl text-ink">{t.name}</h3>
                     <span className="eyebrow text-ink-faint whitespace-nowrap">{t.tag}</span>
                   </div>
