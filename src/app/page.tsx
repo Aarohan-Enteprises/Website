@@ -4,7 +4,7 @@ import { BackToTop, LiveTerminal } from '@/components/ui';
 import { WhatsAppIcon } from '@/components/ui/BrandIcons';
 import {
   ArrowRight, ArrowUpRight, Bot, Code2, Filter,
-  Bell, BarChart3, Users, FileText, Check,
+  Bell, BarChart3, Users, FileText, ShieldCheck, Check,
 } from 'lucide-react';
 
 const services = [
@@ -67,6 +67,15 @@ const tools = [
     href: 'https://pdf2.in',
     description: 'Browser-based PDF tools — merge, split, rotate, compress, and convert.',
     features: ['Merge, split & rotate', 'Compress & watermark', 'PDF & DOCX conversion'],
+  },
+  {
+    icon: ShieldCheck,
+    name: 'Section63',
+    tag: 'From ₹250 · no signup',
+    href: 'https://section63.in',
+    description:
+      'Turns a WhatsApp chat export into a Section 63 (BSA 2023) certified exhibit for Indian courts.',
+    features: ['s.63(4) certificate + SHA-256', 'Media hashed & reproduced', 'Read every page before you pay'],
   },
 ];
 
@@ -207,7 +216,7 @@ export default function HomePage() {
             </p>
           </header>
 
-          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-px bg-rule border border-rule">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-5 gap-px bg-rule border border-rule">
             {tools.map((t) => {
               const Icon = t.icon;
               return (
