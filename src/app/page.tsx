@@ -216,7 +216,7 @@ export default function HomePage() {
             </p>
           </header>
 
-          <div className="grid sm:grid-cols-2 xl:grid-cols-5 gap-px bg-rule border border-rule">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-px bg-rule border border-rule">
             {tools.map((t) => {
               const Icon = t.icon;
               return (
