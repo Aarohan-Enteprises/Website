@@ -4,7 +4,7 @@ import { BackToTop, LiveTerminal } from '@/components/ui';
 import { WhatsAppIcon } from '@/components/ui/BrandIcons';
 import {
   ArrowRight, ArrowUpRight, Bot, Code2, Filter,
-  Bell, BarChart3, Users, FileText, ShieldCheck, Check,
+  Bell, BarChart3, Users, FileText, ShieldCheck, Clock, Check,
 } from 'lucide-react';
 
 const services = [
@@ -76,6 +76,15 @@ const tools = [
     description:
       'Turns a WhatsApp chat export into a Section 63 (BSA 2023) certified exhibit for Indian courts.',
     features: ['s.63(4) certificate + SHA-256', 'Media hashed & reproduced', 'Read every page before you pay'],
+  },
+  {
+    icon: Clock,
+    name: 'Meridian',
+    tag: 'Free · Microsoft Store',
+    href: 'https://meridian.pinecoder.in',
+    description:
+      'A world clock for the Windows desktop — every timezone you work across in one quiet window.',
+    features: ['DST-aware IANA database', 'Internet time-drift sync', 'Always-on-top overlay'],
   },
 ];
 
