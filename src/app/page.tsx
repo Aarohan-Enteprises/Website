@@ -4,7 +4,7 @@ import { BackToTop, LiveTerminal } from '@/components/ui';
 import { WhatsAppIcon } from '@/components/ui/BrandIcons';
 import {
   ArrowRight, ArrowUpRight, Bot, Code2, Filter,
-  Bell, BarChart3, Users, FileText, ShieldCheck, Clock, Check,
+  Bell, BarChart3, Users, FileText, ShieldCheck, Clock, SlidersVertical, Check,
 } from 'lucide-react';
 
 const services = [
@@ -85,6 +85,15 @@ const tools = [
     description:
       'A world clock for the Windows desktop — every timezone you work across in one quiet window.',
     features: ['DST-aware IANA database', 'Internet time-drift sync', 'Always-on-top overlay'],
+  },
+  {
+    icon: SlidersVertical,
+    name: 'Loadout',
+    tag: 'Free · ₹199 a month',
+    href: 'https://loadout.pinecoder.in',
+    description:
+      "Chrome extension that saves a TradingView indicator's settings as a named preset and puts them back in one click.",
+    features: ['Every indicator, one line each', 'Drift detection on live charts', 'No account, nothing auto-renews'],
   },
 ];
 
